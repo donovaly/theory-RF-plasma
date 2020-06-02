@@ -1,0 +1,6607 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass scrartcl
+\begin_preamble
+% Formatierung von Legenden
+\usepackage[labelfont={bf,sf}]{caption}[2004/07/16]
+
+% ermöglicht das Berechnen von Werten
+\usepackage{calc}
+
+%Vergrößert den Teil der Seite, in dem Gleitobjekte
+% unten angeordnet werden dürfen
+\renewcommand{\bottomfraction}{0.5}
+
+% Vermeidet, dass Gleitobjekte vor ihrem Abschnitt gedruckt werden
+\let\mySection\section\renewcommand{\section}{\suppressfloats[t]\mySection}
+
+% Setzt den Link fuer Spruenge zu Gleitabbildungen
+% auf den Anfang des Gelitobjekts und nicht aufs Ende
+\usepackage[figure]{hypcap}
+
+% Linkfläche für Querverweise vergrößern und automatisch benennen,
+\AtBeginDocument{\renewcommand{\ref}[1]{\mbox{\autoref{#1}}}}
+\AtBeginDocument{%
+ \renewcommand*{\equationautorefname}[1]{}
+ \renewcommand{\sectionautorefname}{sec.\negthinspace}
+ \renewcommand{\subsectionautorefname}{sec.\negthinspace}
+ \renewcommand{\subsubsectionautorefname}{sec.\negthinspace}
+ \renewcommand{\figureautorefname}{Fig.\negthinspace}
+}
+
+% the pages of the TOC is numbered roman
+% and a PDF-bookmark for the TOC is added
+\let\myTOC\tableofcontents
+\renewcommand\tableofcontents{%
+  \pdfbookmark[2]{\contentsname}{}
+  \myTOC
+  \newpage}
+
+% used to have extra space in table cells
+\@ifundefined{extrarowheight}
+ {\usepackage{array}}{}
+\setlength{\extrarowheight}{2pt}
+
+% color table cells
+\usepackage{colortbl}
+
+% enable comma as decimal separator
+\usepackage{icomma}
+
+% increase formula line separation
+\setlength{\jot}{2mm+3pt}
+\end_preamble
+\options titlepage, captions=tableheading, bibliography=totoc, usenames, dvipsnames
+\use_default_options true
+\begin_modules
+enumitem
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "lmodern" "default"
+\font_sans "lmss" "default"
+\font_typewriter "lmtt" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement h
+\paperfontsize 12
+\spacing single
+\use_hyperref true
+\pdf_author "Uwe Stöhr"
+\pdf_bookmarks true
+\pdf_bookmarksnumbered true
+\pdf_bookmarksopen true
+\pdf_bookmarksopenlevel 2
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks true
+\pdf_backref false
+\pdf_pdfusetitle true
+\pdf_quoted_options "linkcolor=black, citecolor=black, urlcolor=blue, filecolor=blue, pdfpagelayout=OneColumn, pdfnewwindow=true, pdfstartview=XYZ, plainpages=false"
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 0
+\use_package mhchem 1
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\notefontcolor #0000ff
+\branch NoChildDocument
+\selected 0
+\filename_suffix 0
+\color #0000ff
+\end_branch
+\branch IsChildDocument
+\selected 0
+\filename_suffix 0
+\color #aaaa00
+\end_branch
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation skip
+\defskip medskip
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Theory of RF-plasma processes
+\end_layout
+
+\begin_layout Author
+Uwe Stöhr, Ph.D.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Plasma Frequency
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Plasma-Frequency"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The plasma frequency 
+\begin_inset Formula $\omega_{e}$
+\end_inset
+
+ is the eigenfrequency of the electrons.
+ Without external forces they oscillate with this frequency around the ions.
+ The derivation is simple: Assuming the electrons are shifted by a length
+ 
+\begin_inset Formula $x$
+\end_inset
+
+ away from their position.
+ The equation of motion is then
+\begin_inset Formula 
+\begin{equation}
+m_{e}\ddot{x}=-eE\label{eq:motion}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $m_{e}=9.1\cdot10^{-31}\,$
+\end_inset
+
+kg is the electron mass, 
+\begin_inset Formula $e=1.602\cdot10^{-19}\,$
+\end_inset
+
+As the elementary charge and 
+\begin_inset Formula $E$
+\end_inset
+
+ the electric field strength.
+\end_layout
+
+\begin_layout Standard
+Using the electron density 
+\begin_inset Formula $n_{e}$
+\end_inset
+
+ in the 
+\noun on
+Gauss
+\noun default
+ law we get
+\begin_inset Formula 
+\begin{equation}
+E=\frac{en_{e}}{\epsilon_{0}}\,x\label{eq:E-frequency}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\epsilon_{0}=8.854\cdot10^{-12}\,$
+\end_inset
+
+As/Vm is the vacuum permittivity.
+ Putting 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:E-frequency"
+
+\end_inset
+
+ into 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:motion"
+
+\end_inset
+
+ gives
+\begin_inset Formula 
+\begin{equation}
+0=\underbrace{\frac{e^{2}n_{e}}{m_{e}\epsilon_{0}}}_{\mathrm{eigenfrequency}}\,x+\ddot{x}
+\end{equation}
+
+\end_inset
+
+Out of this oscillation equation we can directly read the expression for
+ the eigenfrequency:
+\begin_inset Formula 
+\begin{equation}
+\omega_{e}=\sqrt{\frac{e^{2}n_{e}}{m_{e}\epsilon_{0}}}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Similarly to 
+\begin_inset Formula $\omega_{e}$
+\end_inset
+
+ the eigenfrequencies for the ions can be determined:
+\begin_inset Formula 
+\begin{equation}
+\omega_{i}=\sqrt{\frac{e^{2}n_{i}}{M\epsilon_{0}}}\label{eq:ion-plasma-frequency}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $M$
+\end_inset
+
+ is the mass of an ion.
+ Due to the global quasi-neutrality 
+\begin_inset Formula $n_{e}\approx n_{i}$
+\end_inset
+
+ for normal plasmas.
+\end_layout
+
+\begin_layout Standard
+For a 
+\begin_inset CommandInset href
+LatexCommand href
+name "capacitively coupled plasma"
+target "https://en.wikipedia.org/wiki/Capacitively_coupled_plasma"
+literal "false"
+
+\end_inset
+
+ (CCP) RF-discharge at a pressure of a few pascals the typical electron
+ density is in the range of 
+\begin_inset Formula $10^{16}\,$
+\end_inset
+
+1/m³.
+ This leads to 
+\begin_inset Formula $\omega_{e}=5.6\,$
+\end_inset
+
+GHz.
+ For 
+\begin_inset Formula $\text{O_{2}^{-}}$
+\end_inset
+
+-ions with 
+\begin_inset Formula $M=5.312\cdot10^{-26}\,$
+\end_inset
+
+kg we then have 
+\begin_inset Formula $\omega_{i\,\text{O_{2}^{-}}}=23.36\,$
+\end_inset
+
+MHz.
+\end_layout
+
+\begin_layout Section
+Plasma Sheath
+\end_layout
+
+\begin_layout Standard
+The sheath is the zone above the electrode and the chamber wall surface
+ where the electron density 
+\begin_inset Formula $n_{e}$
+\end_inset
+
+ is much lower than the ion density 
+\begin_inset Formula $n_{i}$
+\end_inset
+
+.
+ This zone is also visible as the 
+\begin_inset Quotes eld
+\end_inset
+
+dark zone
+\begin_inset Quotes erd
+\end_inset
+
+ when looking into the chamber when a plasma is burning.
+ The reason for the sheath is that the RF of 
+\begin_inset Formula $f=\omega/2\pi=13.56\,$
+\end_inset
+
+MHz is greater than the ion plasma frequency 
+\begin_inset Formula $\omega_{i}$
+\end_inset
+
+ but below the electron plasma frequency 
+\begin_inset Formula $\omega_{e}$
+\end_inset
+
+.
+ Therefore the electrons can follow the electrical field while the ions
+ cannot.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Note: 
+\series default
+Hydrogen atoms are light enough to follow the electrical field: 
+\begin_inset Formula $\omega_{H^{+}}\approx132\,$
+\end_inset
+
+MHz.
+\end_layout
+
+\end_inset
+
+ So at the time where the electrode is positively charged, electrons can
+ stream out of the plasma to the electrode so that there is a region where
+ 
+\begin_inset Formula $n_{e}\approx0$
+\end_inset
+
+ while 
+\begin_inset Formula $n_{i}\gg n_{e}$
+\end_inset
+
+.
+ The density distribution at the electrode/walls is schematically shown
+ in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Scheme-sheath"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename clipart/Sheath-scheme.pdf
+	width 50col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Scheme-sheath"
+
+\end_inset
+
+Scheme of the particle densities in a sheath.
+ The wall is at 
+\begin_inset Formula $x=s$
+\end_inset
+
+, the sheath in the range 
+\begin_inset Formula $0\le x\le s$
+\end_inset
+
+.
+ Image from 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Keudell12"
+literal "true"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The thickness of the sheath is important to know because it determines the
+ distance from the wall in which no substrates can be placed in for coating.
+ It also helps to approximate the dimensions of holes and recessed areas
+ in which strong plasma discharges will burn (hollow cathode effect).
+ This topic is discussed in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Hollow-cathode-effect"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Requirements for a Sheath
+\end_layout
+
+\begin_layout Standard
+What is necessary to get a sheath? It is known that there is no plasma burning
+ in small holes, so obviously there is not enough space to form a sheath.
+ The reason could be that the ions cannot be accelerated to reach a level
+ to build up the positive potential at the wall.
+ That this is indeed the reason is shown in the following.
+\end_layout
+
+\begin_layout Standard
+The energy conservation leads to
+\begin_inset Formula 
+\begin{equation}
+E(x)=\frac{Mv_{i}^{2}(x)}{2}+e\,\varPhi(x)=\frac{Mv_{0}^{2}}{2}=E_{0}\label{eq:energy-conservation}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $M$
+\end_inset
+
+ is the mass of an ion, 
+\begin_inset Formula $E(x)$
+\end_inset
+
+ is the electric field strength in the sheath, 
+\begin_inset Formula $\varPhi(x)$
+\end_inset
+
+ the potential in the sheath, 
+\begin_inset Formula $v_{i}(x)$
+\end_inset
+
+ the velocity of the ions in the sheath and 
+\begin_inset Formula $v_{0}$
+\end_inset
+
+ the velocity of the ions in the plasma bulk streaming into the sheath.
+\end_layout
+
+\begin_layout Standard
+The charge also needs to be conserved so that the current 
+\begin_inset Formula $I$
+\end_inset
+
+ through the area 
+\begin_inset Formula $A$
+\end_inset
+
+ of the sheath needs to be constant:
+\begin_inset Formula 
+\begin{eqnarray}
+\frac{I_{i}}{A} & = & \frac{I_{0}}{A}=\frac{N_{0}\cdot e}{tA}=n_{o}\cdot e\cdot v_{0}\\
+n_{i}(x)v_{i}(x) & = & n_{0}v_{0}\label{eq:current-conservation}
+\end{eqnarray}
+
+\end_inset
+
+(
+\begin_inset Formula $N$
+\end_inset
+
+ is the number of particles and 
+\begin_inset Formula $t$
+\end_inset
+
+ the time.) Putting 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:current-conservation"
+
+\end_inset
+
+ into 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:energy-conservation"
+
+\end_inset
+
+ we get
+\begin_inset Formula 
+\begin{equation}
+n_{i}(x)=n_{0}\,\left(1-\frac{e\,\varPhi(x)}{E_{0}}\right)^{-1/2}
+\end{equation}
+
+\end_inset
+
+The plasma frequency of electrons is above the applied RF so that they can
+ follow this frequency.
+ Therefore their density follows the 
+\noun on
+Boltzmann
+\noun default
+ relation:
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+See 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "sections 2.2.4 and 2.2.5"
+key "Keudell12-2"
+literal "true"
+
+\end_inset
+
+ for a detailed derivation of the 
+\noun on
+Boltzmann
+\noun default
+ relation.
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{eqnarray}
+en_{e}\nabla\varPhi(x) & = & \nabla p(x)=\nabla n_{e}(x)k_{B}T\\
+\frac{\mathrm{d}n_{e}(x)}{n_{e}(x)} & = & \frac{e\,\mathrm{d}\,\varPhi(x)}{k_{B}T_{e}}\\
+n_{e}(x) & = & n_{0}\exp\left(\frac{e\,\varPhi(x)}{k_{B}T_{e}}\right)
+\end{eqnarray}
+
+\end_inset
+
+with the 
+\noun on
+Boltzmann
+\noun default
+ constant 
+\begin_inset Formula $k_{B}=1.38\cdot10^{-23}\,$
+\end_inset
+
+J/K.
+\end_layout
+
+\begin_layout Standard
+The 
+\noun on
+Gauss
+\noun default
+ law is then
+\begin_inset Formula 
+\begin{eqnarray}
+\frac{\mathrm{d}^{2}\varPhi(x)}{\mathrm{d}x^{2}} & = & \frac{e}{\epsilon_{0}}\left(n_{e}(x)+n_{i}(x)\right)\label{eq:Gauss-law1}\\
+ & = & \frac{en_{0}}{\epsilon_{0}}\,\left(\exp\left(\frac{e\,\varPhi(x)}{k_{B}T_{e}}\right)+\left(1-\frac{e\,\varPhi(x)}{E_{0}}\right)^{-1/2}\right)
+\end{eqnarray}
+
+\end_inset
+
+(
+\begin_inset Formula $\epsilon_{0}$
+\end_inset
+
+ is the vacuum permittivity.) It cannot be solved analytically.
+ For a derivation of an approximation at 
+\begin_inset Formula $\varPhi(x\approx0)$
+\end_inset
+
+ see 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "sec. \"Raumladungszone einer Ionenrandschicht\""
+key "Keudell12"
+literal "true"
+
+\end_inset
+
+.
+ This approximation delivers the relation
+\begin_inset Formula 
+\begin{eqnarray}
+\frac{\left(e\,\varPhi(x)\right)^{2}}{k_{B}T_{e}}-\frac{\left(e\,\varPhi(x)\right)^{2}}{2E_{0}} & > & 0\nonumber \\
+\underbrace{\sqrt{\frac{k_{B}T_{e}}{M}}}_{v_{B}} & < & v_{0}\label{eq:Bohm-velocity}
+\end{eqnarray}
+
+\end_inset
+
+
+\begin_inset Formula $v_{B}$
+\end_inset
+
+ is named 
+\noun on
+Bohm
+\noun default
+ velocity and is the velocity that ions must at least have so that a sheath
+ can be formed.
+ This velocity is also the speed of sound of the ions.
+\end_layout
+
+\begin_layout Subsection
+Mean Thickness of Sheaths
+\end_layout
+
+\begin_layout Standard
+We are working in a low pressure regime so that we can assume that the mean
+ free path 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ of the particles is independent of the location in the plasma chamber.
+ For the ion collision frequency we can now write 
+\begin_inset Formula $\nu=\cfrac{v_{i}}{\lambda}$
+\end_inset
+
+.
+ With the ion velocity 
+\begin_inset Formula $v_{i}(x)=\mu E(x)$
+\end_inset
+
+, the ion drift mobility 
+\begin_inset Formula $\mu=\cfrac{e}{M\nu}$
+\end_inset
+
+ and the field strength 
+\begin_inset Formula $E$
+\end_inset
+
+ we can write
+\begin_inset Formula 
+\begin{eqnarray}
+v_{i}(x) & = & \frac{e\lambda}{Mv_{i}(x)}\,E(x)\nonumber \\
+ & = & \sqrt{\frac{e\lambda}{M}\,E(x)}
+\end{eqnarray}
+
+\end_inset
+
+where 
+\begin_inset Formula $M$
+\end_inset
+
+ is the mass of an ion and 
+\begin_inset Formula $e$
+\end_inset
+
+ the electron charge.
+ The ion density can now be calculated according to 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:current-conservation"
+
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{equation}
+n_{i}(x)=\frac{v_{B}}{v_{i}(x)}\,n_{0}\label{eq:n_i}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $v_{B}$
+\end_inset
+
+ is the 
+\noun on
+Bohm
+\noun default
+ velocity that is necessary to get a sheath, 
+\begin_inset Formula $T_{e}$
+\end_inset
+
+ the electron temperature, 
+\begin_inset Formula $k_{B}$
+\end_inset
+
+ the 
+\noun on
+Boltzmann
+\noun default
+ constant and 
+\begin_inset Formula $n_{0}\approx n_{e}\approx n_{i}$
+\end_inset
+
+ the density in the plasma bulk.
+\end_layout
+
+\begin_layout Standard
+The simplest model of a sheath is that the electron density in the sheath
+ is zero.
+ Using this we can neglect the electron density 
+\begin_inset Formula $n_{e}$
+\end_inset
+
+ in the 
+\noun on
+Gauss
+\noun default
+ law:
+\begin_inset Formula 
+\begin{eqnarray}
+\epsilon_{0}\,\frac{\mathrm{d}E}{\mathrm{d}x} & = & e\,\left(n_{i}(x)+\underbrace{n_{e}(x)}_{\approx0}\right)=\cfrac{e\,n_{0}\,\sqrt{\cfrac{k_{B}T_{e}}{M}}}{\sqrt{\frac{e\lambda}{M}\,E}}\label{eq:Gauss-law2}\\
+\epsilon_{0}\sqrt{E}\,\mathrm{d}E & = & en_{0}\,\sqrt{\cfrac{k_{B}T_{e}}{e\lambda}}\,\mathrm{d}x=j_{0}\,\sqrt{\cfrac{M}{e\lambda}}\,\mathrm{d}x\label{eq:current-density}
+\end{eqnarray}
+
+\end_inset
+
+(
+\begin_inset Formula $\epsilon_{0}$
+\end_inset
+
+ is the vacuum permittivity and 
+\begin_inset Formula $j_{0}$
+\end_inset
+
+ the current density.) We integrate from the border of the sheath at 
+\begin_inset Formula $x=0$
+\end_inset
+
+ to the chamber border at 
+\begin_inset Formula $x=s$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{equation}
+E^{3}=\frac{9}{4}\,s^{2}\,n_{0}^{2}\,\frac{e\,k_{B}T_{e}}{\epsilon_{0}^{2}\lambda}\label{eq:E-sheath}
+\end{equation}
+
+\end_inset
+
+At the electrode we apply the voltage 
+\begin_inset Formula $U$
+\end_inset
+
+ so that we have 
+\begin_inset Formula $E(s)=\cfrac{U}{s}$
+\end_inset
+
+.
+ We can now calculate the sheath thickness 
+\begin_inset Formula $s$
+\end_inset
+
+ to
+\begin_inset Formula 
+\begin{equation}
+s=\left(\frac{4U^{3}\epsilon_{0}^{2}\lambda}{9n_{0}^{2}ek_{B}T_{e}}\right)^{1/5}\label{eq:sheath-thickness}
+\end{equation}
+
+\end_inset
+
+Using the relation for the mean free path assuming a 
+\noun on
+Maxwell
+\noun default
+ distribution for the molecule energies 
+\begin_inset Formula 
+\begin{equation}
+\lambda=\cfrac{k_{B}T}{\sqrt{2}\pi d^{2}p}\label{eq:lambda}
+\end{equation}
+
+\end_inset
+
+(
+\begin_inset Formula $d$
+\end_inset
+
+ is the diameter of the gas molecules.) 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:sheath-thickness"
+
+\end_inset
+
+ can be transformed to
+\begin_inset Formula 
+\begin{equation}
+s=\left(\frac{4U^{3}\epsilon_{0}^{2}T}{9\sqrt{2}n_{0}^{2}\pi epd^{2}T_{e}}\right)^{1/5}\label{eq:s-mean}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The values for 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ for different precursors are listed in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Mean-Free-Paths"
+
+\end_inset
+
+.
+ The mean voltage 
+\begin_inset Formula $\bar{U}$
+\end_inset
+
+ at the electrode is the bias voltage so that this can be used to calculate
+ the mean sheath thickness 
+\begin_inset Formula $s$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Taking typical values: 
+\begin_inset Formula $\lambda_{\ce{O2}}(p=2\,\mathrm{Pa})\approx8\,$
+\end_inset
+
+mm, 
+\begin_inset Formula $T\approx300\,$
+\end_inset
+
+K, 
+\begin_inset Formula $T_{e}\approx3\cdot10^{4}\,$
+\end_inset
+
+K, 
+\begin_inset Formula $n_{0}\approx10^{16}\,$
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+1/m³
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+, 
+\begin_inset Formula $p=2\,$
+\end_inset
+
+Pa, 
+\begin_inset Formula $\bar{U}\approx400\,$
+\end_inset
+
+V leads with 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:sheath-thickness"
+
+\end_inset
+
+ to 
+\begin_inset Formula $s\approx4.7\,$
+\end_inset
+
+mm.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:s-mean"
+
+\end_inset
+
+ is the time-independent mean sheath thickness where also the dependency
+ on the electrode area is not taken into account.
+ An approximation of a time- and area-dependent sheath thickness is derived
+ in the following section.
+\end_layout
+
+\begin_layout Subsection
+Time-dependent Thickness of Sheaths
+\end_layout
+
+\begin_layout Standard
+A CCP is kept burning by shifting the charge within the chamber in the applied
+ frequency 
+\begin_inset Formula $\omega_{\mathrm{RF}}$
+\end_inset
+
+.
+ This displacement current 
+\begin_inset Formula $I_{a}$
+\end_inset
+
+ is
+\begin_inset Formula 
+\begin{equation}
+I_{a}(t)=I_{\mathrm{RF}}\cos(\omega_{\mathrm{RF}}t)\label{eq:I-displacement}
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula $I_{\mathrm{RF}}$
+\end_inset
+
+ is the current in the circuit that delivers the RF.
+\end_layout
+
+\begin_layout Standard
+For the electrical field across the sheath we found the relation 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:E-sheath"
+
+\end_inset
+
+.
+ If we this time don't integrate 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:current-density"
+
+\end_inset
+
+ from 
+\begin_inset Formula $x=0..s$
+\end_inset
+
+ but from 
+\begin_inset Formula $x=s..x$
+\end_inset
+
+ we get
+\begin_inset Formula 
+\begin{equation}
+E(x,\,t)^{3}=\frac{9}{4}\,n_{0}^{2}\,\frac{e\,k_{B}T_{e}}{\epsilon_{0}^{2}\lambda}\,\left(x^{2}-s(t)^{2}\right)
+\end{equation}
+
+\end_inset
+
+The displacement current of the sheath above a wall is
+\begin_inset Formula 
+\begin{eqnarray}
+I_{a}(t) & = & \epsilon_{0}A_{w}\frac{\partial E(x,\,t)}{\partial t}\label{eq:I_a}\\
+ & = & -\epsilon_{0}A_{w}\left(\frac{9}{4}\,n_{0}^{2}\,\frac{e\,k_{B}T_{e}}{\epsilon_{0}^{2}\lambda}\right)^{1/3}\frac{\partial s(t)^{2/3}}{\partial t}\label{eq:I_a-final}
+\end{eqnarray}
+
+\end_inset
+
+where 
+\begin_inset Formula $A_{w}$
+\end_inset
+
+ is the area of the wall.
+\end_layout
+
+\begin_layout Standard
+With 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:I-displacement"
+
+\end_inset
+
+ we can now calculate the time-dependent 
+\begin_inset Formula $s_{w}(t)$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{eqnarray}
+s_{w}(t)^{2/3} & = & -\underbrace{\left(\frac{9}{4}\,n_{0}^{2}\,\frac{e\,k_{B}T_{e}}{\epsilon_{0}^{2}\lambda}\right)^{-1/3}\frac{I_{\mathrm{RF}}}{\epsilon_{0}A_{w}\omega_{\mathrm{RF}}}}_{{\displaystyle s_{0}}}\,\sin(\omega_{\mathrm{RF}}t)+C\label{eq:s(t)}
+\end{eqnarray}
+
+\end_inset
+
+At one time the sheath must collapse to enable electrons to leave the plasma
+ compensating the ion current.
+ So at one time we have 
+\begin_inset Formula $s(t)=0$
+\end_inset
+
+ leading to 
+\begin_inset Formula $C=s_{0}$
+\end_inset
+
+.
+ The mean sheath thickness 
+\begin_inset Formula $\bar{s}$
+\end_inset
+
+ is then
+\begin_inset Formula 
+\begin{eqnarray}
+\bar{s}_{w} & = & \left(\frac{9}{4}\,n_{0}^{2}\,\frac{e\,k_{B}T_{e}}{\epsilon_{0}^{2}\lambda}\right)^{-1/2}\left(\frac{I_{\mathrm{RF}}}{\epsilon_{0}A_{w}\omega_{\mathrm{RF}}}\right)^{3/2}\underbrace{\left\langle \left(1-\sin(\omega_{\mathrm{RF}}t)\right)^{3/2}\right\rangle _{t}}_{{\displaystyle \approx1.2}}\nonumber \\
+ & = & \frac{2.4}{3n_{0}}\,\sqrt{\frac{\lambda}{\epsilon_{0}e\,k_{B}T_{e}}}\,\left(\frac{I_{\mathrm{RF}}}{A_{w}\omega_{\mathrm{RF}}}\right)^{3/2}\label{eq:s_precise}
+\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The dime-dependent voltage across the sheath above a wall is
+\begin_inset Formula 
+\begin{eqnarray}
+U_{w}(t) & = & \int_{0}^{s(t)}E(x,\,t)\,\mathrm{d}x\\
+ & = & \int_{0}^{s(t)}\left(\frac{9}{4}\,n_{0}^{2}\,\frac{e\,k_{B}T_{e}}{\epsilon_{0}^{2}\lambda}\right)^{1/3}\left(x^{2}-s_{w}(t)^{2}\right)^{1/3}\,\mathrm{d}x\nonumber \\
+ & = & \frac{3}{5}\,s_{w}(t)^{5/3}\,\left(\frac{9}{4}\,n_{0}^{2}\,\frac{e\,k_{B}T_{e}}{\epsilon_{0}^{2}\lambda}\right)^{1/3}+C_{U}\label{eq:U_w-intermediate}\\
+ & = & \frac{3}{5}\,\left(-s_{0}\,\sin(\omega_{\mathrm{RF}}t)+s_{0}\right)^{5/2}\,\left(\frac{9}{4}\,n_{0}^{2}\,\frac{e\,k_{B}T_{e}}{\epsilon_{0}^{2}\lambda}\right)^{1/3}+C_{U}\nonumber \\
+ & = & \frac{3}{5}\,\left(1-\sin(\omega_{\mathrm{RF}}t)\right)^{5/2}\left(\frac{I_{\mathrm{RF}}}{\epsilon_{0}A_{w}\omega_{\mathrm{RF}}}\right)^{5/2}\,\left(\frac{9}{4}\,n_{0}^{2}\,\frac{e\,k_{B}T_{e}}{\epsilon_{0}^{2}\lambda}\right)^{-1/2}+C_{U}
+\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+At one time per cycle the sheath must collapse so that 
+\begin_inset Formula $U(t)=0$
+\end_inset
+
+.
+ This is already the case because of the sine term so that 
+\begin_inset Formula $C_{U}=0$
+\end_inset
+
+ and we finally get
+\begin_inset Formula 
+\begin{eqnarray}
+U_{w}(t) & = & \frac{2}{5n_{0}\epsilon_{0}^{3/2}}\,\left(1-\sin(\omega_{\mathrm{RF}}t)\right)^{5/2}\left(\frac{I_{\mathrm{RF}}}{A_{w}\omega_{\mathrm{RF}}}\right)^{5/2}\sqrt{\frac{\lambda}{e\,k_{B}T_{e}}}\label{eq:U_w-(t)}\\
+\bar{U}_{w} & \approx & \frac{1.92\cdot2}{5n_{0}\epsilon_{0}^{3/2}}\,\left(\frac{I_{\mathrm{RF}}}{A_{w}\omega_{\mathrm{RF}}}\right)^{5/2}\sqrt{\frac{\lambda}{e\,k_{B}T_{e}}}\label{eq:U_w-precise}
+\end{eqnarray}
+
+\end_inset
+
+where it was used that 
+\begin_inset Formula $\left\langle \left(1-\sin(\omega_{\mathrm{RF}}t)\right)^{5/2}\right\rangle _{t}\approx1.92$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+But what is about the sheath at the electrode?
+\begin_inset Newline newline
+\end_inset
+
+We know that the charge in the plasma must be conserved to fulfill the quasi-neu
+trality.
+ So the current towards the wall 
+\begin_inset Formula $I_{a}$
+\end_inset
+
+ must be the opposite of the one towards the electrode 
+\begin_inset Formula $I_{e}$
+\end_inset
+
+.
+ With 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:I_a-final"
+
+\end_inset
+
+ we find
+\begin_inset Formula 
+\begin{eqnarray}
+I_{a} & = & -I_{e}\nonumber \\
+-A_{w}\frac{\partial s_{a}(t)^{2/3}}{\partial t} & = & A_{e}\frac{\partial s_{e}(t)^{2/3}}{\partial t}\nonumber \\
+s_{e}(t)^{2/3} & = & -\frac{A_{w}}{A_{e}}s_{a}(t)^{2/3}\nonumber \\
+s_{e}(t)^{2/3} & = & \frac{A_{w}}{A_{e}}\left(s_{0}\,\sin(\omega_{\mathrm{RF}}t)-C\right)
+\end{eqnarray}
+
+\end_inset
+
+We hereby paid attention that due to the differentiation we cannot know
+ the sign of the integration constant in 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:s(t)"
+
+\end_inset
+
+ that we identified as 
+\begin_inset Formula $C=s_{0}$
+\end_inset
+
+.
+ The sheath thickness cannot be negative and at one time the sheath must
+ collapse.
+ So we get
+\begin_inset Formula 
+\begin{eqnarray}
+s_{e}(t)^{2/3} & = & \frac{A_{w}}{A_{e}}\,s_{0}\left(\sin(\omega_{\mathrm{RF}}t)+1\right)\nonumber \\
+s_{e}(t) & = & \left(\frac{A_{w}}{A_{e}}\right)^{3/2}\,\frac{2}{3n_{0}}\,\sqrt{\frac{\lambda}{\epsilon_{0}e\,k_{B}T_{e}}}\,\left(\frac{I_{\mathrm{RF}}}{A_{w}\omega_{\mathrm{RF}}}\right)^{3/2}\left(\sin(\omega_{\mathrm{RF}}t)+1\right)^{3/2}\\
+\bar{s}_{e} & = & \left(\frac{A_{w}}{A_{e}}\right)^{3/2}\,\frac{2.4}{3n_{0}}\,\sqrt{\frac{\lambda}{\epsilon_{0}e\,k_{B}T_{e}}}\,\left(\frac{I_{\mathrm{RF}}}{A_{w}\omega_{\mathrm{RF}}}\right)^{3/2}=\left(\frac{A_{w}}{A_{e}}\right)^{3/2}\bar{s}_{w}\label{eq:s_e-mean}
+\end{eqnarray}
+
+\end_inset
+
+where it was used that 
+\begin_inset Formula $\left\langle \left(1+\sin(\omega_{\mathrm{RF}}t)\right)^{3/2}\right\rangle _{t}\approx1.2$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The voltage across the sheath at the electrode 
+\begin_inset Formula $U_{e}$
+\end_inset
+
+ can now be calculated using 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:U_w-intermediate"
+
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{eqnarray}
+U_{e}(t) & = & \frac{3}{5}\,s_{e}(t)^{5/3}\,\left(\frac{9}{4}\,n_{0}^{2}\,\frac{e\,k_{B}T_{e}}{\epsilon_{0}^{2}\lambda}\right)^{1/3}+C_{U}\nonumber \\
+ & = & \frac{3}{5}\,\left(\frac{A_{w}}{A_{e}}\right)^{5/2}\left(s_{0}\,\sin(\omega_{\mathrm{RF}}t)+s_{0}\right)^{5/2}\,\left(\frac{9}{4}\,n_{0}^{2}\,\frac{e\,k_{B}T_{e}}{\epsilon_{0}^{2}\lambda}\right)^{1/3}+C_{U}\nonumber \\
+ & = & \frac{3}{5}\,\left(\frac{A_{w}}{A_{e}}\right)^{5/2}\left(1+\sin(\omega_{\mathrm{RF}}t)\right)^{5/2}\left(\frac{I_{\mathrm{RF}}}{\epsilon_{0}A_{w}\omega_{\mathrm{RF}}}\right)^{5/2}\left(\frac{9}{4}\,n_{0}^{2}\,\frac{e\,k_{B}T_{e}}{\epsilon_{0}^{2}\lambda}\right)^{-1/2}+C_{U}
+\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Also in this case at one time the voltage must vanish so that 
+\begin_inset Formula $C_{U}=0$
+\end_inset
+
+ and we get
+\begin_inset Formula 
+\begin{eqnarray}
+U_{e}(t) & = & \left(\frac{A_{w}}{A_{e}}\right)^{5/2}\frac{2}{5n_{0}\epsilon_{0}^{3/2}}\,\left(1+\sin(\omega_{\mathrm{RF}}t)\right)^{5/2}\left(\frac{I_{\mathrm{RF}}}{A_{w}\omega_{\mathrm{RF}}}\right)^{5/2}\sqrt{\frac{\lambda}{e\,k_{B}T_{e}}}\nonumber \\
+\bar{U}_{e} & = & \left(\frac{A_{w}}{A_{e}}\right)^{5/2}\bar{U}_{w}\label{eq:5/2-law}
+\end{eqnarray}
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Subsection*
+Conclusion
+\end_layout
+
+\begin_layout Standard
+The wall area, the applied frequency and the input current (and thus the
+ input power) have a strong influence on the sheath voltage, while the influence
+ of the mean free length of path is low.
+\end_layout
+
+\begin_layout Standard
+The voltage across the sheath at the electrode strongly depends on the ratio
+ of the electrode area to the wall area.
+ For example for the 80
+\begin_inset space \thinspace{}
+\end_inset
+
+l chamber device 
+\begin_inset Quotes eld
+\end_inset
+
+Domino
+\begin_inset Quotes erd
+\end_inset
+
+
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Manufacturer: Plasma Electronic; device details: 
+\begin_inset CommandInset href
+LatexCommand href
+target "https://www.plasma-electronics.com/domino.html"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $A_{w}/A_{e}\approx6$
+\end_inset
+
+ so that 
+\begin_inset Formula $U_{e}$
+\end_inset
+
+ is about 88
+\begin_inset space ~
+\end_inset
+
+times greater than 
+\begin_inset Formula $U_{w}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The expression for 
+\begin_inset Formula $\bar{U}_{w}$
+\end_inset
+
+ contains with 
+\begin_inset Formula $n_{0}$
+\end_inset
+
+ and 
+\begin_inset Formula $T_{e}$
+\end_inset
+
+ 2
+\begin_inset space ~
+\end_inset
+
+variables which we usually don't measure.
+ The electron temperature only appears because we respected that the ions
+ in the sheath can collide with each other so that they are decelerated.
+ As an approximation we could now neglect collisions.
+ We then have in the sheath 
+\begin_inset Formula $n_{e}=0$
+\end_inset
+
+ and 
+\begin_inset Formula $n_{i}=n_{0}=\mathrm{constant}$
+\end_inset
+
+.
+ In this so-called 
+\begin_inset Quotes eld
+\end_inset
+
+matrix sheath
+\begin_inset Quotes erd
+\end_inset
+
+ model the electron temperature and the mean free path do not influence
+ the sheath voltage and thickness.
+\end_layout
+
+\begin_layout Subsection*
+Approximation
+\end_layout
+
+\begin_layout Standard
+Using the matrix model we can write
+\begin_inset Formula 
+\begin{eqnarray}
+\frac{\mathrm{d}\,E(x,\,t)}{\mathrm{d}x} & = & \frac{en_{0}}{\epsilon_{0}}\nonumber \\
+E(x,\,t) & = & \frac{en_{0}}{\epsilon_{0}}\,(x-s(t))
+\end{eqnarray}
+
+\end_inset
+
+using again 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:I_a"
+
+\end_inset
+
+ we get
+\begin_inset Formula 
+\begin{equation}
+s_{\mathrm{matrix}}(t)=-\underbrace{\frac{I_{\mathrm{RF}}}{e\,n_{0}A_{w}\omega_{\mathrm{RF}}}}_{{\displaystyle s_{0\,\mathrm{matrix}}}}\,\sin(\omega_{\mathrm{RF}}t)+\frac{I_{\mathrm{RF}}}{e\,n_{0}A_{w}\,\omega_{\mathrm{RF}}}\label{eq:s-approx}
+\end{equation}
+
+\end_inset
+
+and
+\begin_inset Formula 
+\begin{eqnarray}
+U_{w\,\mathrm{matrix}}(t) & = & \frac{en_{0}}{2\epsilon_{0}}\,s_{\mathrm{matrix}}^{2}(t)\label{eq:U-sheath-approx}\\
+ & = & \frac{en_{0}}{2\epsilon_{0}}\left(\frac{I_{\mathrm{RF}}}{e\,n_{0}A_{w}\,\omega_{\mathrm{RF}}}\,\left(1-\sin(\omega_{\mathrm{RF}}t)\right)\right)^{2}\label{eq:U_sheath-approx-detail}\\
+\bar{U}_{w\,\mathrm{matrix}} & = & \frac{1}{2e\epsilon_{0}n_{0}}\,\left(\frac{I_{\mathrm{RF}}}{A_{w}\,\omega_{\mathrm{RF}}}\right)^{2}\label{eq:U_w-matrix-mean}
+\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We further on get
+\begin_inset Formula 
+\begin{equation}
+\bar{U}_{e\,\mathrm{matrix}}=\left(\frac{A_{w}}{A_{e}}\right)^{2}\bar{U}_{w\,\mathrm{matrix}}\label{eq:U-matrix-relation}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Bias Voltage
+\end_layout
+
+\begin_layout Standard
+If the electrode has the same area 
+\begin_inset Formula $A_{e}$
+\end_inset
+
+ than the area 
+\begin_inset Formula $A_{w}$
+\end_inset
+
+ of the grounded chamber walls, the voltage across both sheaths is the same.
+ But if the electrode area is smaller, there the is less space to transport
+ the same charge as to the chamber walls.
+ But across the sheaths the same charge must be transported otherwise the
+ charge conservation would be violated.
+ This leads us to 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:5/2-law"
+
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{equation}
+\bar{U}_{e}=\left(\frac{A_{w}}{A_{e}}\right)^{5/2}\bar{U}_{w}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+What we measure as bias voltage is the mean voltage at the electrode
+\begin_inset Formula 
+\begin{equation}
+U_{\mathrm{bias}}=\bar{U}_{e}=\bar{U}_{w}\,\left(\frac{A_{w}}{A_{e}}\right)^{5/2}\label{eq:U_bias-general}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Using 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:U_w-precise"
+
+\end_inset
+
+ we have
+\begin_inset Formula 
+\begin{equation}
+U_{\mathrm{bias}}=\frac{1.92\cdot2}{5n_{0}\epsilon_{0}^{3/2}}\,\left(\frac{I_{\mathrm{RF}}}{A_{w}\omega_{\mathrm{RF}}}\right)^{5/2}\sqrt{\frac{\lambda}{e\,k_{B}T_{e}}}\,\left(\frac{A_{w}}{A_{e}}\right)^{5/2}\label{eq:U_bias}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We know that the applied voltage (the one in the circuit) is the difference
+ of the sheath voltages.
+ With 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:U_w-(t)"
+
+\end_inset
+
+ we can therefore write
+\begin_inset Formula 
+\begin{eqnarray}
+U_{\mathrm{RF}}(t) & = & U_{e}(t)-U_{w}(t)\nonumber \\
+ & = & \frac{2}{5n_{0}\epsilon_{0}^{3/2}}\,\left(\frac{I_{\mathrm{RF}}}{A_{w}\omega_{\mathrm{RF}}}\right)^{5/2}\sqrt{\frac{\lambda}{e\,k_{B}T_{e}}}\nonumber \\
+ &  & \cdot\,\left(\left(\frac{A_{w}}{A_{e}}\right)^{5/2}\left(1+\sin(\omega_{\mathrm{RF}}t)\right)^{5/2}-\left(1-\sin(\omega_{\mathrm{RF}}t)\right)^{5/2}\right)\label{eq:U_RF(t)}
+\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $U_{\mathrm{RF}}(t)$
+\end_inset
+
+, 
+\begin_inset Formula $U_{w}(t)$
+\end_inset
+
+ and 
+\begin_inset Formula $U_{e}(t)$
+\end_inset
+
+ are shown in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Temporal-progression"
+
+\end_inset
+
+.
+ It can be seen that 
+\begin_inset Formula $U_{e}(t)-U_{w}(t)$
+\end_inset
+
+ is a distorted sine that has an offset of 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\left(\cfrac{A_{w}}{A_{e}}\right)^{5/2}-1$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ and the maximum at 
+\begin_inset Formula $\pi/2$
+\end_inset
+
+.
+ In our calculation we applied a cosine current.
+ That the voltages follow a sine visualizes that the plasma sheath model
+ treats the plasma as a pure capacity.
+ A possible inductance due to inhomogeneities in the plasma bulk (for example
+ if metal substrates are used) are not taken into account.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename clipart/Bias-RF-voltage.pdf
+	lyxscale 50
+	width 75col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Temporal-progression"
+
+\end_inset
+
+Temporal progression of 
+\begin_inset Formula $U_{\mathrm{RF}}=U_{e}-U_{w}$
+\end_inset
+
+, 
+\begin_inset Formula $U_{e}$
+\end_inset
+
+, 
+\begin_inset Formula $U_{e}$
+\end_inset
+
+ and 
+\begin_inset Formula $P$
+\end_inset
+
+ for 
+\begin_inset Formula $A_{w}/A_{e}=2$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The power we have to input is
+\begin_inset Formula 
+\begin{eqnarray}
+P(t) & = & I_{\mathrm{RF}}\cos(\omega_{\mathrm{RF}}t)\cdot U_{\mathrm{RF}}(t)\label{eq:P-general}
+\end{eqnarray}
+
+\end_inset
+
+In 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:U_RF(t)"
+
+\end_inset
+
+ we see that the term 
+\begin_inset Formula $\left(1-\sin(\omega_{\mathrm{RF}}t)\right)^{5/2}$
+\end_inset
+
+ can be neglected for 
+\begin_inset Formula $\left(\cfrac{A_{w}}{A_{e}}\right)^{5/2}>50$
+\end_inset
+
+ (error is then < 2
+\begin_inset space \thinspace{}
+\end_inset
+
+%).
+ Using this in 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:P-general"
+
+\end_inset
+
+ gives
+\begin_inset Formula 
+\begin{equation}
+P(t)=I_{\mathrm{RF}}\cos(\omega_{\mathrm{RF}}t)\,\frac{2}{5n_{0}\epsilon_{0}^{3/2}}\,\left(\frac{I_{\mathrm{RF}}}{A_{w}\omega_{\mathrm{RF}}}\right)^{5/2}\sqrt{\frac{\lambda}{e\,k_{B}T_{e}}}\left(\frac{A_{w}}{A_{e}}\right)^{5/2}\left(1+\sin(\omega_{\mathrm{RF}}t)\right)^{5/2}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The temporal progression of 
+\begin_inset Formula $P(t)$
+\end_inset
+
+ is shown in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Temporal-progression"
+
+\end_inset
+
+.
+ The generators measure the root mean square (RMS) of 
+\begin_inset Formula $P(t)$
+\end_inset
+
+ as effective power.
+ The RMS of the term 
+\begin_inset Formula $\cos(\omega_{\mathrm{RF}}t)\cdot\left(1+\sin(\omega_{\mathrm{RF}}t)\right)^{5/2}$
+\end_inset
+
+ is 
+\begin_inset Formula $\approx1.436$
+\end_inset
+
+.
+ We can therefore write
+\begin_inset Formula 
+\begin{eqnarray}
+P_{\mathrm{measured}} & = & I_{\mathrm{RF}}\,\frac{1.436\cdot2}{5n_{0}\epsilon_{0}^{3/2}}\,\left(\frac{I_{\mathrm{RF}}}{A_{w}\omega_{\mathrm{RF}}}\right)^{5/2}\sqrt{\frac{\lambda}{e\,k_{B}T_{e}}}\left(\frac{A_{w}}{A_{e}}\right)^{5/2}\nonumber \\
+ & = & I_{\mathrm{RF}}^{7/2}\,\frac{1.436\cdot2}{5n_{0}\epsilon_{0}^{3/2}}\,\left(\frac{1}{A_{e}\omega_{\mathrm{RF}}}\right)^{5/2}\sqrt{\frac{\lambda}{e\,k_{B}T_{e}}}\\
+I_{\mathrm{RF}} & = & \left(\frac{1.436\cdot2}{5P_{\mathrm{measured}}n_{0}\epsilon_{0}^{3/2}}\,\left(\frac{1}{A_{e}\omega_{\mathrm{RF}}}\right)^{5/2}\sqrt{\frac{\lambda}{e\,k_{B}T_{e}}}\right)^{-2/7}\nonumber \\
+ & = & \left(\frac{5P_{\mathrm{measured}}n_{0}\epsilon_{0}^{3/2}}{1.436\cdot2}\right)^{2/7}\left(\frac{e\,k_{B}T_{e}}{\lambda}\right)^{1/7}\left(A_{e}\omega_{\mathrm{RF}}\right)^{5/7}
+\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This could now be put into 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:U_bias"
+
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{eqnarray}
+U_{\mathrm{bias}} & = & \frac{1.92\cdot2}{5n_{0}\epsilon_{0}^{3/2}}\,\left(\frac{\left(\frac{5P_{\mathrm{measured}}n_{0}\epsilon_{0}^{3/2}}{1.436\cdot2}\right)^{2/7}\left(\frac{e\,k_{B}T_{e}}{\lambda}\right)^{1/7}\left(A_{e}\omega_{\mathrm{RF}}\right)^{5/7}}{A_{w}\omega_{\mathrm{RF}}}\right)^{5/2}\sqrt{\frac{\lambda}{e\,k_{B}T_{e}}}\,\left(\frac{A_{w}}{A_{e}}\right)^{5/2}\nonumber \\
+ & = & \frac{0.831}{n_{0}\epsilon_{0}^{3/2}\omega_{\mathrm{RF}}^{5/2}}\,\left(\left(P_{\mathrm{measured}}n_{0}\epsilon_{0}^{3/2}\right)^{2/7}\left(\frac{e\,k_{B}T_{e}}{\lambda}\right)^{1/7}\left(A_{e}\omega_{\mathrm{RF}}\right)^{5/7}\right)^{5/2}\sqrt{\frac{\lambda}{e\,k_{B}T_{e}}}\,\left(\frac{1}{A_{e}}\right)^{5/2}\nonumber \\
+ & = & \frac{0.831}{n_{0}^{2/7}\epsilon_{0}^{3/7}}\,\left(\frac{P_{\mathrm{measured}}}{\omega_{\mathrm{RF}}A_{e}}\right)^{5/7}\left(\frac{\lambda}{e\,k_{B}T_{e}}\right)^{1/7}\label{eq:U-Bias-power}
+\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+and 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:s_e-mean"
+
+\end_inset
+
+ but this doesn't help us as long as we don't know the electron temperature.
+ We therefore go back to the matrix model approximation.
+\end_layout
+
+\begin_layout Subsection
+Approximation
+\end_layout
+
+\begin_layout Standard
+We already found 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:U_sheath-approx-detail"
+
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{equation}
+U_{w\,\mathrm{matrix}}(t)=\frac{en_{0}}{2\epsilon_{0}}\left(\frac{I_{\mathrm{RF}}}{e\,n_{0}A_{w}\omega_{\mathrm{RF}}}\,\left(1-\sin(\omega_{\mathrm{RF}}t)\right)\right)^{2}
+\end{equation}
+
+\end_inset
+
+and with 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:U-matrix-relation"
+
+\end_inset
+
+ we get
+\begin_inset Formula 
+\begin{equation}
+U_{\mathrm{RF}}(t)=\frac{en_{0}}{2\epsilon_{0}}\left(\frac{I_{\mathrm{RF}}}{e\,n_{0}A_{w}\omega_{\mathrm{RF}}}\right)^{2}\left(\left(\frac{A_{w}}{A_{e}}\right)^{2}\left(1+\sin(\omega_{\mathrm{RF}}t)\right)^{2}-\left(1-\sin(\omega_{\mathrm{RF}}t)\right)^{2}\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To calculate the power we assume that 
+\begin_inset Formula $\left(\cfrac{A_{w}}{A_{e}}\right)^{2}\gg1$
+\end_inset
+
+ so that we have to find only the RMS of the term 
+\begin_inset Formula $\cos(\omega_{\mathrm{RF}}t)\cdot\left(1+\sin(\omega_{\mathrm{RF}}t)\right)^{2}\raisebox{5mm}{}$
+\end_inset
+
+.
+ This is 
+\begin_inset Formula $\approx1.146$
+\end_inset
+
+ so that we can now write
+\begin_inset Formula 
+\begin{eqnarray}
+P_{\mathrm{measured}} & = & I_{\mathrm{RF}}\,\frac{1.146\cdot en_{0}}{2\epsilon_{0}}\left(\frac{I_{\mathrm{RF}}}{e\,n_{0}A_{w}\omega_{\mathrm{RF}}}\right)^{2}\left(\frac{A_{w}}{A_{e}}\right)^{2}\nonumber \\
+ & = & I_{\mathrm{RF}}^{3}\,\frac{1.146}{2\epsilon_{0}en_{0}}\left(\frac{1}{A_{e}\omega_{\mathrm{RF}}}\right)^{2}\\
+I_{\mathrm{RF}} & = & \left(A_{e}\,\omega_{\mathrm{RF}}\right)^{2/3}\,\left(\frac{2\epsilon_{0}en_{0}P_{\mathrm{measured}}}{1.146}\right)^{1/3}\label{eq:I_RF-approx}
+\end{eqnarray}
+
+\end_inset
+
+Putting this relation for 
+\begin_inset Formula $I_{\mathrm{RF}}$
+\end_inset
+
+ into 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:U_w-matrix-mean"
+
+\end_inset
+
+ gives
+\begin_inset Formula 
+\begin{eqnarray}
+U_{\mathrm{bias}} & = & \frac{1}{2e\epsilon_{0}n_{0}}\,\left(\frac{I_{\mathrm{RF}}}{A_{w}\,\omega_{\mathrm{RF}}}\right)^{2}\left(\frac{A_{w}}{A_{e}}\right)^{2}\\
+ & = & \frac{1}{2e\epsilon_{0}n_{0}}\,\left(\frac{\left(A_{e}\,\omega_{\mathrm{RF}}\right)^{2/3}\,\left(\frac{2\epsilon_{0}en_{0}P_{\mathrm{measured}}}{1.146}\right)^{1/3}}{A_{e}\,\omega_{\mathrm{RF}}}\right)^{2}\left(\frac{A_{w}}{A_{e}}\right)^{2}\nonumber \\
+ & = & \left(\frac{1}{2e\epsilon_{0}n_{0}}\right)^{1/3}\,\left(\frac{P_{\mathrm{measured}}}{1.146\cdot A_{e}\,\omega_{\mathrm{RF}}}\right)^{2/3}\left(\frac{A_{w}}{A_{e}}\right)^{2}
+\end{eqnarray}
+
+\end_inset
+
+and this can be transformed to deliver the plasma density:
+\begin_inset Formula 
+\begin{eqnarray}
+n_{0}^{1/3} & = & \frac{1}{U_{\mathrm{bias}}}\,\left(\frac{1}{2e\epsilon_{0}}\right)^{1/3}\,\left(\frac{P_{\mathrm{measured}}}{1.146\cdot A_{e}\,\omega_{\mathrm{RF}}}\right)^{2/3}\left(\frac{A_{w}}{A_{e}}\right)^{2}\nonumber \\
+n_{0} & = & \frac{1}{2e\epsilon_{0}U_{\mathrm{bias}}^{3}}\,\left(\frac{P_{\mathrm{measured}}}{1.146\cdot A_{e}\,\omega_{\mathrm{RF}}}\right)^{2}\left(\frac{A_{w}}{A_{e}}\right)^{6}\label{eq:n_0-approx}
+\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+With this approximated plasma density we can also approximate the ionization
+ ratio 
+\begin_inset Formula $\Gamma_{i}$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{equation}
+\Gamma_{i}=\frac{N}{Vn_{0}}=\frac{p}{k_{B}T\,n_{0}}\label{eq:ionization-ratio}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $N$
+\end_inset
+
+ is the number of particles in the plasma chamber, 
+\begin_inset Formula $p$
+\end_inset
+
+ is the pressure, 
+\begin_inset Formula $V$
+\end_inset
+
+ the volume of the chamber and 
+\begin_inset Formula $T$
+\end_inset
+
+ the global temperature in the chamber.
+\end_layout
+
+\begin_layout Standard
+Although 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:n_0-approx"
+
+\end_inset
+
+ is an approximation, we can put it into the precise relation 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:U_w-precise"
+
+\end_inset
+
+ to get a feeling how the electron temperature behaves:
+\begin_inset Formula 
+\begin{eqnarray}
+U_{\mathrm{bias}} & = & \frac{1.92\cdot2}{5n_{0}\epsilon_{0}^{3/2}}\,\left(\frac{I_{\mathrm{RF}}}{A_{w}\omega_{\mathrm{RF}}}\right)^{5/2}\,\left(\frac{ek_{B}T_{e}}{\lambda}\right)^{-1/2}\left(\frac{A_{w}}{A_{e}}\right)^{5/2}\nonumber \\
+\frac{ek_{B}T_{e}}{\lambda} & = & \left(\frac{1.92\cdot2}{5n_{0}\epsilon_{0}^{3/2}U_{\mathrm{bias}}}\,\left(\frac{I_{\mathrm{RF}}}{A_{w}\omega_{\mathrm{RF}}}\right)^{5/2}\,\left(\frac{A_{w}}{A_{e}}\right)^{5/2}\right)^{2}\nonumber \\
+T_{e} & = & \left(\frac{1.92\cdot2}{5}\right)^{2}\left(\frac{I_{\mathrm{RF}}}{A_{e}\,\omega_{\mathrm{RF}}}\right)^{5}\frac{\lambda}{n_{0}^{2}\,\epsilon_{0}^{3}\,U_{\mathrm{bias}}^{2}\,ek_{B}}\label{eq:T_e-wrong}\\
+ & = & \left(\frac{1.92\cdot2}{5}\right)^{2}\left(\frac{\left(\frac{5P_{\mathrm{measured}}n_{0}\epsilon_{0}^{3/2}}{1.436\cdot2}\right)^{2/7}\left(\frac{e\,k_{B}T_{e}}{\lambda}\right)^{1/7}\left(A_{e}\omega_{\mathrm{RF}}\right)^{5/7}}{A_{e}\,\omega_{\mathrm{RF}}}\right)^{5}\frac{\lambda}{n_{0}^{2}\,\epsilon_{0}^{3}\,U_{\mathrm{bias}}^{2}\,ek_{B}}\nonumber \\
+ & = & \left(\left(\frac{1.92\cdot2}{5}\right)^{2}\left(\frac{5P_{\mathrm{measured}}n_{0}\epsilon_{0}^{3/2}}{1.436\cdot2}\right)^{10/7}\left(\frac{e\,k_{B}}{\lambda}\right)^{5/7}\frac{1}{\left(A_{e}\omega_{\mathrm{RF}}\right)^{10/7}}\,\frac{\lambda}{n_{0}^{2}\,\epsilon_{0}^{3}\,U_{\mathrm{bias}}^{2}\,ek_{B}}\right)^{7/2}\nonumber \\
+ & = & \left(\frac{1.92\cdot2}{5}\right)^{7}\left(\frac{5P_{\mathrm{measured}}}{1.436\cdot2}\right)^{5}\frac{\lambda}{n_{0}^{2}ek_{B}\,\left(A_{e}\omega_{\mathrm{RF}}\right)^{5}\epsilon_{0}^{3}\,U_{\mathrm{bias}}^{7}}
+\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Conclusions
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename clipart/Bias-Geometry.pdf
+	width 75col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Spatial-progression"
+
+\end_inset
+
+Spatial progression of the voltage in a plasma between symmetric and asymmetric
+ electrode areas.
+ Image from 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Keudell12"
+literal "true"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Spatial-progression"
+
+\end_inset
+
+ shows the spatial progression of the voltage inside a plasma schematically.
+ Due to the smaller electrode area the voltage across the sheath above the
+ electrode is much higher.
+ This is the effect we use to accelerate ions towards substrates to coat
+ them.
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:U_bias"
+
+\end_inset
+
+ shows that a smaller 
+\begin_inset Formula $A_{e}$
+\end_inset
+
+ leads to less necessary input current (and thus input power) to get the
+ same bias voltage.
+\end_layout
+
+\begin_layout Standard
+Interesting is the inverse cubic dependence of the bias voltage in 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:n_0-approx"
+
+\end_inset
+
+.
+ So a low plasma density results in a high bias.
+ This is an important result because this is the reason why a dense plasma
+ is burning into holes of substrates at the electrode for low ionized plasmas.
+ These are typically plasmas of mainly larger precursor molecules.
+ This topic is discussed in detail in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Hollow-cathode-effect"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename clipart/plasma-density-Domino.pdf
+	lyxscale 50
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Plasma-density-Domino"
+
+\end_inset
+
+Plasma density for the plasma device 
+\begin_inset Quotes eld
+\end_inset
+
+Domino
+\begin_inset Quotes erd
+\end_inset
+
+ with a chamber volume of 80
+\begin_inset space \thinspace{}
+\end_inset
+
+l (
+\begin_inset Formula $A_{e}\approx0.138\,$
+\end_inset
+
+m², 
+\begin_inset Formula $A_{w}\approx0.832$
+\end_inset
+
+
+\begin_inset space \thinspace{}
+\end_inset
+
+m²) in dependence of the applied plasma power and the measured 
+\begin_inset Formula $U_{\mathrm{bias}}$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement !h
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename clipart/plasma-density-Porta900.pdf
+	lyxscale 50
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Plasma-density-Porta"
+
+\end_inset
+
+Plasma density for the plasma device 
+\begin_inset Quotes eld
+\end_inset
+
+Porta
+\begin_inset space ~
+\end_inset
+
+900
+\begin_inset Quotes erd
+\end_inset
+
+ with one large electrode (
+\begin_inset Formula $A_{e}=0.64\,$
+\end_inset
+
+m², 
+\begin_inset Formula $A_{w}=0.9^{2}\cdot6-0.64=4.22$
+\end_inset
+
+
+\begin_inset space \thinspace{}
+\end_inset
+
+m²) in dependence of the applied plasma power and the measured 
+\begin_inset Formula $U_{\mathrm{bias}}$
+\end_inset
+
+.
+ For the setup with 3
+\begin_inset space ~
+\end_inset
+
+chambers (
+\begin_inset Formula $A_{e}=0.07\,$
+\end_inset
+
+m², 
+\begin_inset Formula $A_{w}=2.594$
+\end_inset
+
+
+\begin_inset space \thinspace{}
+\end_inset
+
+m²) the values in this plot must be multiplied with the factor 198.16.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The plasma density 
+\begin_inset Formula $n_{0}$
+\end_inset
+
+ for the 80
+\begin_inset space \thinspace{}
+\end_inset
+
+l chamber device 
+\begin_inset Quotes eld
+\end_inset
+
+Domino
+\begin_inset Quotes erd
+\end_inset
+
+
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Manufacturer: Plasma Electronic; device details: 
+\begin_inset CommandInset href
+LatexCommand href
+target "https://www.plasma-electronics.com/domino.html"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ is shown in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Plasma-density-Domino"
+
+\end_inset
+
+, the plasma density for a 720
+\begin_inset space \thinspace{}
+\end_inset
+
+l chamber device 
+\begin_inset Quotes eld
+\end_inset
+
+Porta
+\begin_inset space ~
+\end_inset
+
+900
+\begin_inset Quotes erd
+\end_inset
+
+
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Manufacturer: Plasma Electronic; cubic chamber with an edge length of 0.9
+\begin_inset space \thinspace{}
+\end_inset
+
+m;
+\begin_inset Newline newline
+\end_inset
+
+device details: 
+\begin_inset CommandInset href
+LatexCommand href
+target "https://www.plasma-electronics.com/porta.html"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Plasma-density-Porta"
+
+\end_inset
+
+.
+ One can see that if one measures for a low power a relatively high bias,
+ the plasma density is low meaning the ionization rate is also low.
+ By modifying the 
+\begin_inset Quotes eld
+\end_inset
+
+Porta
+\begin_inset space ~
+\end_inset
+
+900
+\begin_inset Quotes erd
+\end_inset
+
+ so that the device chamber is divided by 3
+\begin_inset space ~
+\end_inset
+
+equally sized inner chambers with each a smaller electrode, the plasma density
+ is increased by about a factor
+\begin_inset space ~
+\end_inset
+
+200.
+ So the then different ratio 
+\begin_inset Formula $A_{e}/A_{w}$
+\end_inset
+
+ change the plasma parameters drastically.
+\end_layout
+
+\begin_layout Standard
+Taking the case that in the 
+\begin_inset Quotes eld
+\end_inset
+
+Domino
+\begin_inset Quotes erd
+\end_inset
+
+ we measured a bias of 500
+\begin_inset space \thinspace{}
+\end_inset
+
+V for pure Ar at 
+\begin_inset Formula $p=2\,$
+\end_inset
+
+Pa with a power of 190
+\begin_inset space \thinspace{}
+\end_inset
+
+W.
+ With 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Plasma-density-Domino"
+
+\end_inset
+
+ we get 
+\begin_inset Formula $n_{0}\approx1.5\cdot10^{14}\,$
+\end_inset
+
+1/m³ and therefore with 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:T_e-wrong"
+
+\end_inset
+
+ 
+\begin_inset Formula $T_{e}\approx7.6\cdot10^{5}\,$
+\end_inset
+
+K.
+ But this about 100
+\begin_inset space ~
+\end_inset
+
+times higher than values found in literature and with 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Phi_float"
+
+\end_inset
+
+ we would get a plasma potential of about 327
+\begin_inset space \thinspace{}
+\end_inset
+
+V.
+ This shows that the electron temperature cannot be estimated using the
+ matrix model in its derivation.
+ This result could have been expected because the matrix model does not
+ take care of 
+\begin_inset Formula $T_{e}$
+\end_inset
+
+.
+ In fact one cannot estimate 
+\begin_inset Formula $T_{e}$
+\end_inset
+
+ by measuring only the plasma power and the bias voltage.
+\end_layout
+
+\begin_layout Subsection
+Applications
+\end_layout
+
+\begin_layout Subsubsection
+ICP + CCP
+\end_layout
+
+\begin_layout Standard
+Looking at 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:U-Bias-power"
+
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{equation}
+U_{\mathrm{bias}}=\frac{0.831}{n_{0}^{2/7}\epsilon_{0}^{3/7}}\,\left(\frac{P_{\mathrm{measured}}}{\omega_{\mathrm{RF}}A_{e}}\right)^{5/7}\left(\frac{\lambda}{e\,k_{B}T_{e}}\right)^{1/7}
+\end{equation}
+
+\end_inset
+
+ we see that 
+\begin_inset Formula $U_{\mathrm{bias}}\sim n_{0}^{-2/7}$
+\end_inset
+
+, 
+\begin_inset Formula $U_{\mathrm{bias}}\sim P_{\mathrm{measured}}^{5/7}$
+\end_inset
+
+ and 
+\begin_inset Formula $U_{\mathrm{bias}}\sim T_{e}^{-1/7}$
+\end_inset
+
+.
+ For a setup where the ions are generated in an 
+\begin_inset CommandInset href
+LatexCommand href
+name "inductively coupled plasma"
+target "https://en.wikipedia.org/wiki/Inductively_coupled_plasma"
+literal "false"
+
+\end_inset
+
+ (ICP), the ion energy is a constant while the ion density increases with
+ increasing input power for the ICP.
+ To get a defined and adjustable ion impact energy on the substrate one
+ can apply an RF-voltage to the substrate.
+ We then have a 
+\begin_inset CommandInset href
+LatexCommand href
+name "capacitively coupled plasma"
+target "https://en.wikipedia.org/wiki/Capacitively_coupled_plasma"
+literal "false"
+
+\end_inset
+
+ (CCP) above the substrate but 
+\begin_inset Formula $n_{0}$
+\end_inset
+
+ is almost independent of the CCP parameters.
+\end_layout
+
+\begin_layout Standard
+For a glass etching application this setup was chosen.
+ For the ICP and the CCP the same frequency was used.
+ As both plasmas did not interfere in this setup although the same frequency
+ was used, they can be treated as being independent from each other.
+ Then for a constant ICP power and thus a constant 
+\begin_inset Formula $n_{0}$
+\end_inset
+
+ the bias voltage should have the dependency 
+\begin_inset Formula $U_{\mathrm{bias}}\sim P_{\mathrm{measured}}^{5/7}$
+\end_inset
+
+ for the case that the CCP does not change the electron temperature 
+\begin_inset Formula $T_{e}$
+\end_inset
+
+.
+ The measurements to prove this theory was performed using an ICP source
+ model 
+\begin_inset Quotes eld
+\end_inset
+
+Copra DN 160
+\begin_inset Quotes erd
+\end_inset
+
+
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Manufacturer: CCR technology;
+\begin_inset Newline newline
+\end_inset
+
+device details: 
+\begin_inset CommandInset href
+LatexCommand href
+target "https://www.ccrtechnology.de/copra-products/copra-round-sources/"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+.
+ The result is plotted in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Dependency-Bias-ICP"
+
+\end_inset
+
+.
+ Fitting the curves in this plot with the function 
+\begin_inset Formula $U_{\mathrm{bias}}=K\cdot P_{\mathrm{measured}}^{X}$
+\end_inset
+
+ gives the results listed in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Fit-parameters"
+
+\end_inset
+
+.
+ The expected exponent 
+\begin_inset Formula $5/7\approx0.71$
+\end_inset
+
+ is the one for 300
+\begin_inset space \thinspace{}
+\end_inset
+
+W.
+ For larger ICP powers the exponent increases which implies that 
+\begin_inset Formula $T_{e}$
+\end_inset
+
+ is then smaller.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename clipart/ICP-CCP-Bias.pdf
+	width 70col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Dependency-Bias-ICP"
+
+\end_inset
+
+Dependency of the bias voltage on the CCP power for different ICP powers.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Fit-parameters"
+
+\end_inset
+
+Fit parameters for the measurement curves from 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Dependency-Bias-ICP"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="4">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ICP power in W
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Parameter 
+\begin_inset Formula $X$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Parameter 
+\begin_inset Formula $K$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\chi_{\mathrm{red}}^{2}$
+\end_inset
+
+ of the fit
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+300
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.71\pm0.01$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $73.71\pm9.09$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.12
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+400
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.79\pm0.01$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $22.82\pm2.06$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.58
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+500
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0.82\pm0.01$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $14.82\pm1.16$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.31
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The ion current density in the used ICP source for a fixed pressure of 0.1
+\begin_inset space \thinspace{}
+\end_inset
+
+Pa is for an input power of 300
+\begin_inset space \thinspace{}
+\end_inset
+
+W about 0.1
+\begin_inset space \thinspace{}
+\end_inset
+
+mA/cm² and for 500
+\begin_inset space \thinspace{}
+\end_inset
+
+W about 0.21
+\begin_inset space \thinspace{}
+\end_inset
+
+mA/cm².
+ Although we measured at a pressure of about 0.4
+\begin_inset space \thinspace{}
+\end_inset
+
+Pa we assume that also 
+\begin_inset Formula $n_{0}$
+\end_inset
+
+ is increased by a factor 1.75 if going from 300 to 500
+\begin_inset space \thinspace{}
+\end_inset
+
+W ICP power.
+ For low CCP powers we can neglect the influence of the CCP on 
+\begin_inset Formula $n_{0}$
+\end_inset
+
+ and expect that the bias voltage for 500
+\begin_inset space \thinspace{}
+\end_inset
+
+W is 
+\begin_inset Formula $1.75^{2/7}\approx0.44$
+\end_inset
+
+ lower than for 300
+\begin_inset space \thinspace{}
+\end_inset
+
+W.
+ Looking at 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Dependency-Bias-ICP"
+
+\end_inset
+
+ we get a factor 0.53 – 0.67 lower bias voltage, depending on the CCP power,
+ see 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Factors-of-the"
+
+\end_inset
+
+.
+ Even for the lowest measurable CCP power of 10
+\begin_inset space \thinspace{}
+\end_inset
+
+W we see again that an increasing ICP power decreases 
+\begin_inset Formula $T_{e}$
+\end_inset
+
+ as the factor is much greater than expected.
+ For higher CCP powers we have also a lower 
+\begin_inset Formula $T_{e}$
+\end_inset
+
+.
+ This is an interesting result because a higher CCP power always leads to
+ a higher 
+\begin_inset Formula $n_{0}$
+\end_inset
+
+ and this decreases the bias.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Factors-of-the"
+
+\end_inset
+
+Factors of the decreasing bias voltages when going from 300 to 500
+\begin_inset space \thinspace{}
+\end_inset
+
+W ICP power; in dependence of the CCP power.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="8">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+CCP power in W
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+15
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+20
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+30
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+40
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+50
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+60
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Factor
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.53
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.55
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.56
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.62
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.64
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.65
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.67
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+CCP
+\end_layout
+
+\begin_layout Standard
+In contrary to the combination of ICP
+\begin_inset space ~
+\end_inset
+
++
+\begin_inset space ~
+\end_inset
+
+CCP, for a pure CCP the Bias voltage behave differently.
+ According to 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:U-Bias-power"
+
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{equation}
+U_{\mathrm{bias}}=\frac{0.831}{n_{0}^{2/7}\epsilon_{0}^{3/7}}\,\left(\frac{P_{\mathrm{measured}}}{\omega_{\mathrm{RF}}A_{e}}\right)^{5/7}\left(\frac{\lambda}{e\,k_{B}T_{e}}\right)^{1/7}
+\end{equation}
+
+\end_inset
+
+ one gets the relations 
+\begin_inset Formula $U_{\mathrm{bias}}\sim n_{0}^{-2/7}$
+\end_inset
+
+ and 
+\begin_inset Formula $U_{\mathrm{bias}}\sim P_{\mathrm{measured}}^{5/7}$
+\end_inset
+
+.
+ In a CCP an increased 
+\begin_inset Formula $P$
+\end_inset
+
+ will also always result in an increased 
+\begin_inset Formula $n_{0}$
+\end_inset
+
+ and a changed 
+\begin_inset Formula $T_{e}$
+\end_inset
+
+.
+ For practical applications it is helpful to know how the Bias is changed
+ by changing the input power and the pressure 
+\begin_inset Formula $p$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+For the measurement the device 
+\begin_inset Quotes eld
+\end_inset
+
+Labor
+\begin_inset space ~
+\end_inset
+
+1
+\begin_inset Quotes erd
+\end_inset
+
+ (80
+\begin_inset space ~
+\end_inset
+
+liter vacuum chamber) was used.
+ Pure argon was used as process gas because it is a single-atom gas (to
+ keep the pressure constant because no molecule fragmentation can occur).
+ The Bias voltage was measured at constant pressures while the input power
+ was changed.
+ The resulting datasets were fit using these equations
+\begin_inset Formula 
+\begin{equation}
+U_{\mathrm{bias}}=K\cdot\left(P_{\mathrm{measured}}-x_{0}\right)^{B_{\mathrm{powerr}}}+y_{0}
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+U_{\mathrm{bias}}=K\cdot\left(p-x_{0}\right)^{B_{\mathrm{pressure}}}+y_{0}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Dependency-Bias-CCP"
+
+\end_inset
+
+ shows as example how the results looked.
+ It can be seen that the fit at constant pressure well describes the change
+ of the Bias whereas the fit at constant pressure shows that the fit model
+ is not optimal (
+\begin_inset Formula $\chi_{\mathrm{red}}>1$
+\end_inset
+
+).
+ In 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Dependency-Bias-CCP-final"
+
+\end_inset
+
+ the fit parameters 
+\begin_inset Formula $B_{\mathrm{power}}$
+\end_inset
+
+ and 
+\begin_inset Formula $B_{\mathrm{pressure}}$
+\end_inset
+
+ are plotted for the different pressures and powers, receptively.
+ One can see that the fit parameters are relatively constant for the different
+ pressures and powers.
+ As final conclusion one gets for a CCP with argon:
+\begin_inset Formula 
+\begin{equation}
+U_{\mathrm{bias}}\sim P_{\mathrm{measured}}^{{\textstyle 0.5360\pm0.0152}}\label{eq:U-P-exponent}
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+U_{\mathrm{bias}}\sim p^{{\textstyle -0.1831\pm0.0016}}\label{eq:U-p-exponent}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This shows that the plasma density 
+\begin_inset Formula $n_{0}$
+\end_inset
+
+ is indeed increased if the pressure is increased.
+ The electron temperature 
+\begin_inset Formula $T_{e}$
+\end_inset
+
+ is increased too so that the exponent in 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:U-p-exponent"
+
+\end_inset
+
+ is greater than 
+\begin_inset Formula $-2/7$
+\end_inset
+
+.
+ If the CCP-power is increased 
+\begin_inset Formula $n_{0}$
+\end_inset
+
+ and 
+\begin_inset Formula $T_{e}$
+\end_inset
+
+ are increased too so that the exponent in 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:U-P-exponent"
+
+\end_inset
+
+ is smaller than 
+\begin_inset Formula $5/7$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement p
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Float figure
+placement b
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename clipart/Power-Bias-at-4-14Pa.pdf
+	lyxscale 50
+	width 80col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Dependency of the bias voltage on the input power for a fixed pressure of
+ 4.14
+\begin_inset space \thinspace{}
+\end_inset
+
+Pa.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Float figure
+placement b
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename clipart/Pressure-Bias-at-400W.pdf
+	lyxscale 50
+	width 80col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Dependency of the bias voltage on the pressure for a fixed input power of
+ 400
+\begin_inset space \thinspace{}
+\end_inset
+
+W.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Dependency-Bias-CCP"
+
+\end_inset
+
+Dependency of the bias voltage on the pressure and the input power for 2
+\begin_inset space ~
+\end_inset
+
+different cases.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement p
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Float figure
+placement b
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename clipart/Bias-Exponent-Pressure.pdf
+	lyxscale 50
+	width 85col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Fit of the fit-parameters 
+\begin_inset Formula $B_{\mathrm{power}}$
+\end_inset
+
+ at different pressures.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Float figure
+placement b
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename clipart/Bias-Exponent-Power.pdf
+	lyxscale 50
+	width 85col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Fit of the fit-parameters 
+\begin_inset Formula $B_{\mathrm{pressure}}$
+\end_inset
+
+ at different input powers.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Dependency-Bias-CCP-final"
+
+\end_inset
+
+Linear fit of the different fit-parameters 
+\begin_inset Formula $B_{\mathrm{power}}$
+\end_inset
+
+ and 
+\begin_inset Formula $B_{\mathrm{pressure}}$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Floating Potential
+\end_layout
+
+\begin_layout Standard
+When treating polymer substrates they are often placed into the chamber
+ without an electrical connection to the chamber walls or the electrode.
+ At the substrate there is therefore no sheath.
+ The question is now how large the potential between the plasma and the
+ substrate will be.
+\end_layout
+
+\begin_layout Standard
+As there is no electric connection, the substrate is on a so-called floating
+ potential and the ion current 
+\begin_inset Formula $I_{i}$
+\end_inset
+
+ must be equal the electron current 
+\begin_inset Formula $I_{e}$
+\end_inset
+
+ onto the substrate surface.
+ So we can write
+\begin_inset Formula 
+\begin{eqnarray}
+I_{e} & = & I_{i}\nonumber \\
+A\,n_{0}v_{e,\,\mathrm{therm}} & = & A\,n_{0}v_{B}\label{eq:charge-conservation}
+\end{eqnarray}
+
+\end_inset
+
+where we used that the ions within the plasma must have the 
+\noun on
+Bohm
+\noun default
+ velocity.
+\end_layout
+
+\begin_layout Standard
+Within the plasma we can assume that the electrical field is independent
+ of the position.
+ Therefore the velocity of the electrons is their thermal one 
+\begin_inset Formula $v_{e,\,\mathrm{therm}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+The mean 
+\begin_inset Formula $v_{e,\,\mathrm{therm}}$
+\end_inset
+
+ can be calculated using the Maxwell-Boltzmann distribution 
+\begin_inset Formula $f(v)$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{eqnarray}
+\left\langle v_{e,\,\mathrm{therm}}\right\rangle  & = & \int vf(v)\,\mathrm{d}v\nonumber \\
+ & = & \int v_{e}\,\sqrt{\frac{m_{e}}{2\pi k_{B}T_{e}}}\exp\left(\frac{-m_{e}v_{_{e}}^{2}}{2k_{B}T_{e}}\right)\,\mathrm{d}v_{e}\nonumber \\
+ & = & -\sqrt{\frac{k_{B}T_{e}}{2\pi m_{e}}}\exp\left(\frac{-e\,\varPhi}{k_{B}T_{e}}\right)\label{eq:<e-therm>}
+\end{eqnarray}
+
+\end_inset
+
+Where the relation 
+\begin_inset Formula $\cfrac{m_{e}v_{e}^{2}}{2}=e\,\varPhi$
+\end_inset
+
+ was used.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:charge-conservation"
+
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ becomes now 
+\begin_inset Formula 
+\begin{eqnarray}
+\sqrt{\frac{k_{B}T_{e}}{M}} & = & -\sqrt{\frac{k_{B}T_{e}}{2\pi m_{e}}}\exp\left(\frac{-e\,\varPhi_{\mathrm{float}}}{k_{B}T_{e}}\right)\nonumber \\
+\varPhi_{\mathrm{float}} & = & \frac{k_{B}T_{e}}{e}\ln\left(\sqrt{\frac{2\pi m_{e}}{M}}\right)
+\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In our devices the electrode is set to a certain voltage to apply power
+ to the plasma.
+ Therefore we get a bias which is negative.
+ Electrons are therefore reflected and cannot reach the electrode surface
+ (except of one point in time).
+ We therefore have instead of 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:charge-conservation"
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{eqnarray}
+A_{w}\,n_{0}v_{e,\,\mathrm{therm}} & = & n_{0}v_{B}\,(A_{w}+A_{e})
+\end{eqnarray}
+
+\end_inset
+
+which leads to
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\begin{eqnarray}
+\sqrt{\frac{k_{B}T_{e}}{M}}\,(A_{w}+A_{e}) & = & -\sqrt{\frac{k_{B}T_{e}}{2\pi m_{e}}}\exp\left(\frac{-e\,\varPhi_{\mathrm{float}}}{k_{B}T_{e}}\right)A_{w}\nonumber \\
+\varPhi_{\mathrm{float}} & = & \frac{k_{B}T_{e}}{e}\ln\left(\frac{A_{w}+A_{e}}{A_{w}}\,\sqrt{\frac{2\pi m_{e}}{M}}\right)\label{eq:Phi_float}
+\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+The influence of the ion mass 
+\begin_inset Formula $M=N\,$
+\end_inset
+
+u (
+\begin_inset Formula $\mathrm{u}=1.66\cdot10^{-27}\,$
+\end_inset
+
+kg is the atomic mass unit) on 
+\begin_inset Formula $\varPhi_{\mathrm{float}}$
+\end_inset
+
+ is shown in 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:floating-potential"
+
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+.
+ 
+\begin_inset Formula $\ce{O2}$
+\end_inset
+
+ has a mass of 32
+\begin_inset space \thinspace{}
+\end_inset
+
+u while a large molecule like 
+\begin_inset CommandInset href
+LatexCommand href
+name "HMDSO"
+target "https://en.wikipedia.org/wiki/Hexamethyldisiloxane"
+literal "false"
+
+\end_inset
+
+ has a mass of 162
+\begin_inset space ~
+\end_inset
+
+u.
+ It can be seen that the potential does not increase a lot with higher ion
+ masses and for large molecules one has to have in mind that they are cracked
+ into smaller ones in the plasma so that the real floating potential will
+ not be far above the one of oxygen.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename clipart/Floating-potential.pdf
+	lyxscale 50
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:floating-potential"
+
+\end_inset
+
+
+\begin_inset Formula $\Phi_{\mathrm{float}}$
+\end_inset
+
+ in V in dependence of the ion mass 
+\begin_inset Formula $M=N\,$
+\end_inset
+
+u for different fractions 
+\begin_inset Formula $\cfrac{A_{w}}{A_{e}}$
+\end_inset
+
+.
+ 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+The electron temperature was set in the calculation to 
+\begin_inset Formula $T_{e}=3.48\cdot10^{4}\,$
+\end_inset
+
+K.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+As the ions must have the Bohm velocity, the potential to accelerate the
+ ions to the velocity is the plasma potential:
+\begin_inset Formula 
+\begin{eqnarray}
+e\,\varPhi_{\mathrm{plasma}} & = & \frac{Mv_{B}^{^{2}}}{2}\nonumber \\
+\varPhi_{\mathrm{plasma}} & = & \frac{k_{B}T_{e}}{2e}
+\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For a typical electron temperature of 
+\begin_inset Formula $T_{e}=3.48\cdot10^{4}\,$
+\end_inset
+
+K we have 
+\begin_inset Formula $\varPhi_{\mathrm{plasma}}\approx1.5\,$
+\end_inset
+
+V.
+\end_layout
+
+\begin_layout Subsection*
+Conclusion
+\end_layout
+
+\begin_layout Standard
+The floating potential is often greater than the voltage across the sheath
+ of a grounded chamber wall.
+ Assuming we have a setup with 
+\begin_inset Formula $A_{w}=6A_{e}$
+\end_inset
+
+ and measure 
+\begin_inset Formula $U_{\mathrm{bias}}=400\,$
+\end_inset
+
+V we can calculate with 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:U_bias-general"
+
+\end_inset
+
+ that 
+\begin_inset Formula $U_{w}\approx4.5\,$
+\end_inset
+
+V.
+ If the electrode area is much larger than the chamber wall area the plasma
+ potential can be positive.
+\end_layout
+
+\begin_layout Standard
+By measuring the floating potential with e.
+\begin_inset space \thinspace{}
+\end_inset
+
+g.
+\begin_inset space \space{}
+\end_inset
+
+a 
+\noun on
+Langmuir
+\noun default
+ probe, we could measure the electron temperature and could then calculate
+ plasma potential, the real sheath thickness 
+\begin_inset Formula $s$
+\end_inset
+
+ according to 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:s_precise"
+
+\end_inset
+
+ and also the real plasma density 
+\begin_inset Formula $n_{0}$
+\end_inset
+
+ according to 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:U_w-precise"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Dissipated Power
+\end_layout
+
+\begin_layout Standard
+The power in a CCP is dissipated because energy is consumed to ionize molecules,
+ the ions collide and therefore loose energy and the electrons are accelerated.
+ So in summary we can write
+\begin_inset Formula 
+\begin{equation}
+P=\int E\,\mathrm{d}t=\int\left(E_{\mathrm{ionization}}+E_{e,\,\mathrm{therm}}+E_{\mathrm{sheath}}\right)\,\mathrm{d}t
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The power can in principle be split into an ohmic and a stochastic part.
+\end_layout
+
+\begin_layout Subsection
+Ohmic
+\end_layout
+
+\begin_layout Standard
+The ohmic part describes the heating of the plasma due to the RF-electrical
+ field accelerating charged particles.
+ The equation of motion is
+\begin_inset Formula 
+\begin{equation}
+m\ddot{x}+m\nu\dot{x}=eE_{0}\sin(\omega_{\mathrm{RF}}t)\label{eq:Force_ohm}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $m$
+\end_inset
+
+ is the mass of a particle, 
+\begin_inset Formula $\nu$
+\end_inset
+
+ the collision rate of the particles and 
+\begin_inset Formula $E_{0}$
+\end_inset
+
+ the applied field strength.
+\end_layout
+
+\begin_layout Standard
+The power is the energy per time 
+\begin_inset Formula $t$
+\end_inset
+
+ and the energy is the force along a path 
+\begin_inset Formula $x$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{equation}
+P_{\mathrm{ohm,\,particle}}(t)=\frac{F(t)\,\mathrm{d}x}{\mathrm{d}t}=eE_{0}\sin(\omega_{\mathrm{RF}}t)\dot{x}
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula $\dot{x}$
+\end_inset
+
+ can be derived by solving 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Force_ohm"
+
+\end_inset
+
+.
+ It is
+\begin_inset Formula 
+\begin{equation}
+\dot{x}=-\,\frac{eE_{0}\omega_{\mathrm{RF}}}{m\left(\omega_{\mathrm{RF}}^{2}+\nu^{2}\right)}\,\left(\cos(\omega_{\mathrm{RF}}t)-\frac{\nu}{\omega_{\mathrm{RF}}}\sin(\omega_{\mathrm{RF}}t)\right)
+\end{equation}
+
+\end_inset
+
+so that we get for a single particle
+\begin_inset Formula 
+\begin{eqnarray}
+\bar{P}_{\mathrm{ohm,\,particle}} & = & \frac{\omega_{\mathrm{RF}}}{2\pi}\int_{0}^{2\pi/\omega_{\mathrm{RF}}}P_{\mathrm{ohm,\,particle}}\,\mathrm{d}t\nonumber \\
+ & = & \frac{e^{2}E_{0}^{2}}{2m}\,\frac{\nu}{\omega_{\mathrm{RF}}^{2}+\nu^{2}}
+\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The power per volume is simply
+\begin_inset Formula 
+\begin{eqnarray}
+\bar{P}_{\mathrm{ohm}} & = & \bar{P}_{\mathrm{ohm,\,particle}}\cdot n_{0}\nonumber \\
+ & = & \frac{n_{0}e^{2}E_{0}^{2}}{2m}\,\frac{\nu}{\omega_{\mathrm{RF}}^{2}+\nu^{2}}\label{eq:P_ohm}
+\end{eqnarray}
+
+\end_inset
+
+This result can be interpreted by splitting it into a part of the electric
+ field and one of the energy transfer rate due to the collisions:
+\begin_inset Formula 
+\begin{eqnarray}
+\bar{P}_{\mathrm{ohm}} & = & \frac{\epsilon_{0}E_{0}^{2}}{2}\cdot\,\underbrace{\frac{n_{0}e^{2}}{m\epsilon_{0}}}_{\omega_{\mathrm{plasma}}^{2}}\frac{\nu}{\omega_{\mathrm{RF}}^{2}+\nu^{2}}\nonumber \\
+ & = & \underbrace{\frac{\epsilon_{0}E_{0}^{2}}{2}}_{\text{electric field}}\cdot\underbrace{\frac{\omega_{\mathrm{plasma}}^{2}\,\nu}{\omega_{\mathrm{RF}}^{2}+\nu^{2}}}_{\text{collisions}}\label{eq:P_ohm-rate}
+\end{eqnarray}
+
+\end_inset
+
+(
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:ion-plasma-frequency"
+
+\end_inset
+
+ was used.)
+\end_layout
+
+\begin_layout Standard
+The collision term shows that the ohmic heating is maximal if the collision
+ rate 
+\begin_inset Formula $\nu=\cfrac{v}{\lambda}$
+\end_inset
+
+ is equal to the applied frequency 
+\begin_inset Formula $\omega_{\mathrm{RF}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+It is interesting to see how electrons and ions are heated.
+ We take as example an argon plasma (
+\begin_inset Formula $M=40\,$
+\end_inset
+
+u) and 
+\begin_inset Formula $\omega_{\mathrm{RF}}=85.2\,$
+\end_inset
+
+MHz.
+ With 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:ion-plasma-frequency"
+
+\end_inset
+
+ we get
+\begin_inset Formula 
+\begin{equation}
+\frac{\omega_{i}}{\omega_{e}}=\sqrt{\frac{m_{e}}{M}}=3.7\cdot10^{-3}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Within the plasma bulk the ions must have the 
+\noun on
+Bohm
+\noun default
+ velocity so that we get with 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Bohm-velocity"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:lambda"
+
+\end_inset
+
+ for the ion collision rate
+\begin_inset Formula 
+\begin{eqnarray}
+\nu_{i} & = & \frac{v_{B}}{\lambda_{i}}=\sqrt{\frac{k_{B}T_{e}}{\lambda_{i}^{2}M}}=\sqrt{\frac{T_{e}2\pi^{2}D^{4}p^{2}}{k_{B}T^{2}M}}\label{eq:nu-expanded}
+\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Putting 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Phi_float"
+
+\end_inset
+
+ into 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:<e-therm>"
+
+\end_inset
+
+ leads to
+\begin_inset Formula 
+\begin{equation}
+\nu_{e}=\frac{\left\langle v_{e,\,\mathrm{therm}}\right\rangle }{\lambda_{e}}=\frac{A_{w}}{A_{w}+A_{e}}\,\sqrt{k_{B}T_{e}M}\,\frac{1}{2\pi m_{e}\lambda_{e}}
+\end{equation}
+
+\end_inset
+
+With 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:nu-expanded"
+
+\end_inset
+
+ we get
+\begin_inset Formula 
+\begin{eqnarray}
+\frac{\nu_{i}}{\nu_{e}} & = & \frac{\lambda_{e}}{\lambda_{i}}\,\frac{2\pi m_{e}}{M}\,\frac{A_{w}+A_{e}}{A_{w}}\nonumber \\
+ & = & \frac{R_{i}^{2}}{R_{e}^{2}}\,\frac{2\pi m_{e}}{M}\,\frac{A_{w}+A_{e}}{A_{w}}\nonumber \\
+ & = & \frac{8\pi m_{e}}{M}\,\frac{A_{w}+A_{e}}{A_{w}}\approx3.4\cdot10^{-4}\,\frac{A_{w}+A_{e}}{A_{w}}
+\end{eqnarray}
+
+\end_inset
+
+where 
+\begin_inset Formula $R$
+\end_inset
+
+ is the radius of the of the cross-sectional area.
+ For ions this is twice the molecule radius so that 
+\begin_inset Formula $R_{i}=d$
+\end_inset
+
+ (
+\begin_inset Formula $d$
+\end_inset
+
+ is the diameter of the molecule).
+ For electrons the cross sectional area is just the area of the molecules
+ (
+\begin_inset Formula $R_{e}=d/2$
+\end_inset
+
+) because the radius of the electron can be neglected compared to the one
+ of molecules.
+\end_layout
+
+\begin_layout Standard
+Assuming 
+\begin_inset Formula $A_{w}\gg A_{e}$
+\end_inset
+
+ and using the fact that 
+\begin_inset Formula $\omega_{\mathrm{RF}}\gg\nu_{i}$
+\end_inset
+
+ (
+\begin_inset Formula $\nu_{i\,\mathrm{Ar\:2\,Pa}}\approx300\,$
+\end_inset
+
+kHz) we get
+\begin_inset Formula 
+\begin{eqnarray}
+\bar{P}_{\mathrm{ohm}} & = & \bar{P}_{\mathrm{ohm\,}e}+\bar{P}_{\mathrm{ohm\,}i}\nonumber \\
+ & = & \frac{\epsilon_{0}E_{0}^{2}}{2}\,\left(\frac{\omega_{e}^{2}\,\nu_{e}}{\omega_{\mathrm{RF}}^{2}+\nu_{e}^{2}}+\frac{\omega_{i}^{2}\,\nu_{i}}{\omega_{\mathrm{RF}}^{2}+\nu_{i}^{2}}\right)\nonumber \\
+ & = & \frac{\epsilon_{0}E_{0}^{2}}{2}\frac{\omega_{e}^{2}\nu_{e}}{\omega_{\mathrm{RF}}^{2}+\nu_{e}^{2}}\,\left(1+\frac{\omega_{i}^{2}\,\nu_{i}\left(\omega_{\mathrm{RF}}^{2}+\nu_{e}^{2}\right)}{\omega_{e}^{2}\nu_{e}\,\left(\omega_{\mathrm{RF}}^{2}+\nu_{i}^{2}\right)}\right)\nonumber \\
+ & \approx & \frac{\epsilon_{0}E_{0}^{2}}{2}\frac{\omega_{e}^{2}\nu_{e}}{\omega_{\mathrm{RF}}^{2}+\nu_{e}^{2}}\,\left(1+\frac{8\pi m_{e}^{2}}{M^{2}}\frac{\left(\omega_{\mathrm{RF}}^{2}+\nu_{e}^{2}\right)}{\omega_{\mathrm{RF}}^{2}}\right)\nonumber \\
+ & \approx & \frac{\epsilon_{0}E_{0}^{2}}{2}\frac{\omega_{e}^{2}\nu_{e}}{\omega_{\mathrm{RF}}^{2}+\nu_{e}^{2}}\,\left(1+4.7\cdot10^{-9}\left(1+\underbrace{\frac{\nu_{e}^{2}}{\omega_{\mathrm{RF}}^{2}}}_{\ll4.7\cdot10^{9}}\right)\right)\nonumber \\
+ & \approx & \frac{\epsilon_{0}E_{0}^{2}}{2}\frac{\omega_{e}^{2}\nu_{e}}{\omega_{\mathrm{RF}}^{2}+\nu_{e}^{2}}
+\end{eqnarray}
+
+\end_inset
+
+This shows that almost all energy is used to heat the electrons.
+ This result was expected because we derived in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Plasma-Frequency"
+
+\end_inset
+
+ that only the electrons can follow the applied RF-frequency while the ions
+ are too heavy and therefore have an eigenfrequency lower than the RF-frequency.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Another interpretation of 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:P_ohm"
+
+\end_inset
+
+ is to use the relation
+\begin_inset Formula 
+\begin{equation}
+P=\frac{\sigma}{2}E_{0}^{2}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ is the electric conductivity:
+\begin_inset Formula 
+\begin{equation}
+\bar{P}_{\mathrm{ohm}}=\underbrace{\underbrace{\frac{n_{0}e^{2}}{M\nu}}_{\sigma_{\mathrm{DC}}}\,\frac{\nu^{2}}{\omega_{\mathrm{RF}}^{2}+\nu^{2}}}_{\sigma_{\mathrm{RF}}}\,\frac{E_{0}^{2}}{2}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Conclusions
+\end_layout
+
+\begin_layout Standard
+For a pure argon plasma (
+\begin_inset Formula $M\approx40\,$
+\end_inset
+
+u) at 
+\begin_inset Formula $p=2\,$
+\end_inset
+
+Pa we have 
+\begin_inset Formula $\lambda_{i}\approx8.97\,$
+\end_inset
+
+mm
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+.
+ For a typical electron temperature of 
+\begin_inset Formula $T_{e}=3.48\cdot10^{4}\,$
+\end_inset
+
+K we get 
+\begin_inset Formula $\nu_{i}=299.8\,$
+\end_inset
+
+kHz.
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+Assuming 
+\begin_inset Formula $n_{0}=10^{15}\,$
+\end_inset
+
+1/m³ we get 
+\begin_inset Formula $\omega_{\mathrm{plasma}}\approx\omega_{i}=6.6\,$
+\end_inset
+
+MHz.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Energy-transfer-rate"
+
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ shows the 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+energy transfer rate
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula 
+\begin{equation}
+\mathrm{rate}=\cfrac{\omega_{\mathrm{plasma}}^{2}\,\nu}{\omega_{\mathrm{applied}}^{2}+\nu^{2}}
+\end{equation}
+
+\end_inset
+
+which is the
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ collision term from 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:P_ohm-rate"
+
+\end_inset
+
+.
+ For our example we have 
+\begin_inset Formula $\mathrm{rate}\approx1800$
+\end_inset
+
+, 
+\begin_inset Formula $\sigma_{DC}=1.29\cdot10^{-3}\,\text{1/\Omega m}$
+\end_inset
+
+ (this is about 1/12 of the conductivity of normal saline (0.9
+\begin_inset space \thinspace{}
+\end_inset
+
+% NaCl in water)) and 
+\begin_inset Formula $\sigma_{\mathrm{RF}}=4.9\cdot10^{-4}\,\sigma_{DC}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Energy-transfer-rate"
+
+\end_inset
+
+ also shows what happens for other applied frequencies.
+ According to 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:n_0-approx"
+
+\end_inset
+
+ the plasma density is proportional to the applied frequency and according
+ to 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:ion-plasma-frequency"
+
+\end_inset
+
+ the plasma frequency is proportional to the plasma density
+\begin_inset Formula 
+\begin{eqnarray*}
+n_{0}\approx n_{i} & \propto & \frac{1}{\omega_{\mathrm{applied}}^{2}}\\
+\omega_{\mathrm{plasma}} & \propto & \sqrt{n_{0}}\propto\frac{1}{\omega_{\mathrm{applied}}}
+\end{eqnarray*}
+
+\end_inset
+
+This leads to
+\begin_inset Formula 
+\begin{equation}
+\frac{\omega_{\mathrm{plasma}}}{\omega_{\mathrm{applied}}}\propto\frac{1}{\omega_{\mathrm{applied}}^{2}}
+\end{equation}
+
+\end_inset
+
+According to 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:nu-expanded"
+
+\end_inset
+
+ the collision rate is proportional to the electron temperature which is
+ according to 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:T_e-wrong"
+
+\end_inset
+
+ in turn proportional to the applied frequency 
+\begin_inset Formula 
+\begin{eqnarray*}
+T_{e} & \propto & \frac{1}{\omega_{\mathrm{applied}}^{5}}\\
+\nu_{i} & \propto & \sqrt{T_{e}}\propto\frac{1}{\omega_{\mathrm{applied}}^{2.5}}
+\end{eqnarray*}
+
+\end_inset
+
+This leads to
+\begin_inset Formula 
+\begin{equation}
+\frac{\nu_{i}}{\omega_{\mathrm{applied}}}\propto\frac{1}{\omega_{\mathrm{applied}}^{3.5}}
+\end{equation}
+
+\end_inset
+
+For 
+\begin_inset Formula $\omega_{\mathrm{applied}}$
+\end_inset
+
+ in the range of GHz we go to the left and downwards in the plot in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Energy-transfer-rate"
+
+\end_inset
+
+.
+ So the energy transfer rate becomes negligible.
+ This is again the result that the ions can not be heated because they cannot
+ follow the applied frequency.
+ This results in a globally cold plasma.
+ For 
+\begin_inset Formula $\omega_{\mathrm{applied}}$
+\end_inset
+
+ in the range of kHz, we go to the right and upwards in the plot.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename clipart/Ohmic-Heating.pdf
+	lyxscale 50
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Energy-transfer-rate"
+
+\end_inset
+
+Energy transfer rate in dependency of 
+\begin_inset Formula $\nu/\omega_{\mathrm{applied}}$
+\end_inset
+
+ (x-axis) and 
+\begin_inset Formula $\omega_{\mathrm{plasma}}/\omega_{\mathrm{applied}}$
+\end_inset
+
+ (different curves).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Stochastic
+\end_layout
+
+\begin_layout Standard
+The stochastic part of the dissipated power is difficult to calculate.
+ This power is consumed by the electrons colliding with the moving sheath
+ walls.
+ Within the plasma bulk the electron distribution is a 
+\noun on
+Maxwell-Boltzmann
+\noun default
+ distribution but at the sheath borders this is not the case because a fraction
+ of the electrons are entering the sheath and will be accelerated.
+ It can even be shown (see 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "sec. \"Randschicht mit homogenem Ionendichteprofil\""
+key "Keudell12"
+literal "true"
+
+\end_inset
+
+) that the assumption of a 
+\noun on
+Maxwell-Boltzmann
+\noun default
+ distribution would give that no power is dissipated but measurements show
+ that power is dissipated also at very low pressures (where ohmic dissipation
+ can be neglected).
+ Finding an usable electron distribution is an active research topic and
+ an analytic solution nor a suitable approximation has not yet been found.
+\end_layout
+
+\begin_layout Section
+Electronegative Plasma
+\end_layout
+
+\begin_layout Standard
+Until now we assumed that all ions are positively charged because each ionized
+ atom or molecule looses one or more electrons.
+ This is correct in many cases but the electronegativity of oxygen and fluorine
+ is so high that the 
+\begin_inset Formula $\mathrm{O\cdot}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathrm{F\cdot\,}$
+\end_inset
+
+-radicals can grab two or one electron, respectively.
+ In this case we have also a non-negligible amount of negatively charged
+ ions.
+ The density distributions at a sheath in such an electronegative plasma
+ is shown in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Scheme-electroneg-sheath"
+
+\end_inset
+
+.
+ The negative ions are less mobile than the electrons and are therefore
+ pushed more away from the wall.
+ As the result there is no clean sheath border.
+ However, we can define the sheath border at the largest 
+\begin_inset Formula $x$
+\end_inset
+
+ at which 
+\begin_inset Formula $n_{i-}(x)+n_{e}(x)=n_{0}=n_{i+}(x)$
+\end_inset
+
+ is fulfilled.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename clipart/Electronegative-sheath-scheme.pdf
+	width 50col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Scheme-electroneg-sheath"
+
+\end_inset
+
+Scheme of the particle densities in a sheath of an electronegative plasma.
+ The wall is at 
+\begin_inset Formula $x=s$
+\end_inset
+
+, the sheath in the range 
+\begin_inset Formula $0\le x\le s$
+\end_inset
+
+.
+ Original image from 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Keudell12"
+literal "true"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In this case the 
+\noun on
+Gauss
+\noun default
+ law needs to be modified and is instead of 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Gauss-law1"
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+\frac{\mathrm{d}^{2}\Phi(x)}{\mathrm{d}x^{2}}=\frac{e}{\epsilon_{0}}\left(n_{e}(x)+n_{i-}(x)-n_{i+}(x)\right)
+\end{equation}
+
+\end_inset
+
+with 
+\begin_inset Formula $\alpha=\cfrac{n_{i-}}{n_{e}}$
+\end_inset
+
+ and 
+\begin_inset Formula $\beta=\cfrac{T_{e}}{T_{i}}$
+\end_inset
+
+ we can solve this and get
+\begin_inset Formula 
+\begin{equation}
+v_{B}=\sqrt{\frac{k_{B}T_{e}}{M}\,\frac{1+\alpha}{1+\alpha\beta}}
+\end{equation}
+
+\end_inset
+
+see 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "sec. \"Raumladungszone eines elektronegativen Plasmas\""
+key "Keudell12"
+literal "true"
+
+\end_inset
+
+ for a detailed derivation.
+\end_layout
+
+\begin_layout Standard
+In our applications we can assume that the electron temperature is much
+ higher than the temperature of the ions (
+\begin_inset Formula $\beta\gg1$
+\end_inset
+
+).
+ In an oxygen plasma we have 
+\begin_inset Formula $\alpha>0$
+\end_inset
+
+.
+ The dependence of 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ on 
+\begin_inset Formula $v_{B}$
+\end_inset
+
+ of an oxygen plasma is shown in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:v_B-oxygen"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename clipart/Bohm-oxygen.pdf
+	lyxscale 50
+	width 60col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:v_B-oxygen"
+
+\end_inset
+
+
+\begin_inset Formula $v_{B}$
+\end_inset
+
+ in m/s for an oxygen plasma with a non-negligible fraction of 
+\begin_inset Formula $\ce{O2-}$
+\end_inset
+
+-ions (
+\begin_inset Formula $M=32\,$
+\end_inset
+
+u) in dependence of the ion electronegativity 
+\begin_inset Formula $\alpha=\cfrac{n_{i-}}{n_{e}}$
+\end_inset
+
+.
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\begin_inset Formula $\beta$
+\end_inset
+
+ was set to 
+\begin_inset Formula $\cfrac{T_{e}}{T_{i}}=\cfrac{3.48\cdot10^{4}}{300}=116$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If we use this Bohm velocity in 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:n_i"
+
+\end_inset
+
+ we get instead of 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Gauss-law2"
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{eqnarray}
+\frac{\mathrm{d}E}{\mathrm{d}x} & = & =\cfrac{e\,n_{0}\,\sqrt{\frac{k_{B}T_{e}}{M}\,\frac{1+\alpha}{1+\alpha\beta}}}{\epsilon_{0}\,\sqrt{\frac{e\lambda}{M}\,E}}\nonumber \\
+\epsilon_{0}\sqrt{E}\,\mathrm{d}\,E & = & e\,n_{0}\,\sqrt{\cfrac{k_{B}T_{e}}{e\lambda}\,\frac{1+\alpha}{1+\alpha\beta}}\,\mathrm{d}\,x\nonumber \\
+E(x)^{3} & = & \frac{9}{4}\,n_{0}^{2}s^{2}\,\cfrac{ek_{B}T_{e}}{\epsilon_{0}^{2}\lambda}\,\frac{1+\alpha}{1+\alpha\beta}
+\end{eqnarray}
+
+\end_inset
+
+with 
+\begin_inset Formula $E(s)=\cfrac{U}{s}$
+\end_inset
+
+ we get
+\begin_inset Formula 
+\begin{equation}
+s=\left(\frac{4U^{3}\epsilon_{0}^{2}\lambda}{9n_{0}^{2}ek_{B}T_{e}}\,\frac{1+\alpha\beta}{1+\alpha}\right)^{1/5}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Conclusion
+\end_layout
+
+\begin_layout Standard
+With a higher level of electronegativity the 
+\noun on
+Bohm
+\noun default
+ velocity is decreased.
+ This increases the sheath thickness and therefore also the sheath voltage,
+ see the approximation 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:U-sheath-approx"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Energy of Impinging Ions
+\end_layout
+
+\begin_layout Standard
+Depending on the substrate it is important to know the energy of the ions
+ impinging the surface.
+ For example for polymer substrates one might estimate what chemical bonds
+ can be cracked by impinging ions.
+\end_layout
+
+\begin_layout Standard
+In the plasma bulk the ions have the Bohm velocity 
+\begin_inset Formula $v_{B}$
+\end_inset
+
+, across the sheath of the electrode there is a mean voltage of 
+\begin_inset Formula $U_{\mathrm{bias}}$
+\end_inset
+
+ along the sheath thickness 
+\begin_inset Formula $s$
+\end_inset
+
+.
+ If the substrate is within the plasma bulk the ions are accelerated by
+ the floating potential 
+\begin_inset Formula $\Phi_{\mathrm{float}}$
+\end_inset
+
+.
+ To calculate the ion energies we start with the time-independent equation
+ of motion:
+\begin_inset Formula 
+\begin{equation}
+M\ddot{x}=eE_{0}
+\end{equation}
+
+\end_inset
+
+The sheath can be treated as parallel plate capacitor so that we have 
+\begin_inset Formula $E_{0}=\cfrac{U_{\mathrm{bias}}}{s}$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+M\ddot{x}=\frac{eU_{\mathrm{bias}}}{s}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+With the knowledge that the ions enter the sheath with the Bohm velocity
+ 
+\begin_inset Formula ${\displaystyle v_{B}}=\sqrt{\cfrac{k_{B}T_{e}}{M}}$
+\end_inset
+
+ the integration gives 
+\begin_inset Formula 
+\begin{eqnarray}
+\dot{x}(t) & = & \frac{eU_{\mathrm{bias}}}{sM}\,t+C\\
+\dot{x}(t=0) & = & v_{B}=C\\
+\dot{x}(t) & = & \frac{eU_{\mathrm{bias}}}{sM}\,t+v_{B}\label{eq:x-punkt}
+\end{eqnarray}
+
+\end_inset
+
+The further integration gives
+\begin_inset Formula 
+\begin{equation}
+x(t)=\frac{eU_{\mathrm{bias}}}{2sM}\,t^{2}+v_{B}t
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The acceleration only happens along the sheath thickness 
+\begin_inset Formula $s$
+\end_inset
+
+.
+ The time of the acceleration is therefore
+\begin_inset Formula 
+\begin{eqnarray}
+s & = & \frac{eU_{\mathrm{bias}}}{2sM}\,\tau^{2}+v_{B}\tau\\
+0 & = & \tau^{2}+\frac{2sv_{B}M}{eU_{\mathrm{bias}}}\tau-\frac{2s^{2}M}{eU_{\mathrm{bias}}}\\
+\tau_{1,\,2} & = & -\,\frac{sv_{B}M}{eU_{\mathrm{bias}}}\pm\sqrt{\left(\frac{sv_{B}M}{eU_{\mathrm{bias}}}\right)^{2}+\frac{2s^{2}M}{eU_{\mathrm{bias}}}}
+\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The time cannot be negative so that the solution is
+\begin_inset Formula 
+\begin{eqnarray}
+\tau & = & -\,\frac{sv_{B}M}{eU_{\mathrm{bias}}}+\sqrt{\left(\frac{sv_{B}M}{eU_{\mathrm{bias}}}\right)^{2}+\frac{2s^{2}M}{eU_{\mathrm{bias}}}}\nonumber \\
+ & = & -\,\frac{sv_{B}M}{eU_{\mathrm{bias}}}+\frac{sM}{eU_{\mathrm{bias}}}\,\sqrt{v_{B}^{2}+\frac{2eU_{\mathrm{bias}}}{M}}\nonumber \\
+ & = & \frac{sM}{eU_{\mathrm{bias}}}\left(-v_{B}+\sqrt{v_{B}^{2}+\frac{2eU_{\mathrm{bias}}}{M}}\right)
+\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Putting this into 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:x-punkt"
+
+\end_inset
+
+ leads to the final velocity of the ions
+\begin_inset Formula 
+\begin{eqnarray}
+v=\dot{x}(\tau) & = & \frac{eU_{\mathrm{bias}}}{sM}\,\frac{sM}{eU_{\mathrm{bias}}}\left(-v_{B}+\sqrt{v_{B}^{2}+\frac{2eU_{\mathrm{bias}}}{M}}\right)+v_{B}\nonumber \\
+ & = & \sqrt{v_{B}^{2}+\frac{2eU_{\mathrm{bias}}}{M}}=\sqrt{\frac{k_{B}T_{e}+2eU_{\mathrm{bias}}}{M}}
+\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We can now calculate the kinetic energy of the impinging ions:
+\begin_inset Formula 
+\begin{eqnarray}
+E_{\mathrm{kin}} & = & \frac{M}{2}v^{2}\nonumber \\
+ & = & \frac{k_{B}T_{e}}{2}+eU_{\mathrm{bias}}
+\end{eqnarray}
+
+\end_inset
+
+Taking into account that the ions can have more than one elementary charge,
+ we get with the number of elementary charges 
+\begin_inset Formula $\tilde{N}$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+E_{\mathrm{kin}}=\frac{k_{B}T_{e}}{2}+\tilde{N}eU_{\mathrm{bias}}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We cannot (yet) measure 
+\begin_inset Formula $T_{e}$
+\end_inset
+
+ and therefore assume a typical temperature of 
+\begin_inset Formula $T_{e}=3.5\cdot10^{4}\,$
+\end_inset
+
+K we get with 
+\begin_inset Formula $\tilde{N}=1$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+E_{\mathrm{impinge\,electrode}}=1.5+U_{\mathrm{bias}}\,\mathrm{eV}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+As the biases are in the range of several 100
+\begin_inset space \thinspace{}
+\end_inset
+
+V, the influence of the electron temperature can be neglected.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For the case that the substrate is on floating potential we have according
+ to 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Phi_float"
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{eqnarray}
+E_{\mathrm{impinge\,floating}} & = & -\tilde{N}e\Phi_{\mathrm{float}}\nonumber \\
+ & = & -\tilde{N}k_{B}T_{e}\ln\left(\frac{A_{w}+A_{e}}{A_{w}}\,\sqrt{\frac{2\pi m_{e}}{M}}\right)
+\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Example
+\end_layout
+
+\begin_layout Standard
+For an Argon plasma (
+\begin_inset Formula $M=40\,$
+\end_inset
+
+u and 
+\begin_inset Formula $\tilde{N}=1$
+\end_inset
+
+) in a typical setup (
+\begin_inset Formula $A_{w}/A_{e}=6$
+\end_inset
+
+) we have according to 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Phi_float"
+
+\end_inset
+
+ 
+\begin_inset Formula $\Phi_{\mathrm{float}}=-13.5\,$
+\end_inset
+
+V and therefore 
+\begin_inset Formula $E_{\mathrm{impinge\,floating}}=13.5\,$
+\end_inset
+
+eV.
+\end_layout
+
+\begin_layout Subsection*
+Conclusions
+\end_layout
+
+\begin_layout Standard
+We see again that without measuring the electron temperature 
+\begin_inset Formula $T_{e}$
+\end_inset
+
+ we cannot calculate the ion energies impinging substrates on floating potential.
+ In contrary for the energy of ions impinging substrates on electrode potential
+ the electron temperature can be neglected.
+\end_layout
+
+\begin_layout Section
+Hollow Cathode Effect
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Hollow-cathode-effect"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Plasmas with a high density are often observed within recessed volumes like
+ flanges or holes.
+ Their occurrence can be explained geometrically.
+ Taking for example a hole with the radius 
+\begin_inset Formula $r$
+\end_inset
+
+, a dense plasma will burn in there if 
+\begin_inset Formula 
+\begin{equation}
+2s>r>s\label{eq:r-sheath-hollow}
+\end{equation}
+
+\end_inset
+
+whereas 
+\begin_inset Formula $s$
+\end_inset
+
+ is the thickness of the sheath.
+ The reason is that the ions impinging the wall generate secondary electrons.
+ They are reflected by the currently negatively charged walls and are accelerate
+d so that they can reach the opposite sheath.
+ There they will again be reflected because of the sheath potential.
+ If both sheath borders are geometrically close together, the electrons
+ can therefore not leave the plasma but will be reflected again and again.
+ This increases the ionization rate enormously because every additional
+ electron can induce an ionization.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+The effect of increasing the ionization rate by holding the electrons in
+ the plasma is also used by the magnetron setup in sputter devices, where
+ the electrons are kept by magnetic field lines.
+\end_layout
+
+\end_inset
+
+ The effect is illustrated in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Sketch-hole-setup"
+
+\end_inset
+
+.
+ It does not usually not occur in holes in substrates at floating potential
+ because the floating potential is much lower than the bias voltage and
+ the holes are in most cases open so that the number of reflections are
+ low until the electrons can leave the hole volume.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename clipart/Hollow-cathode-scheme.pdf
+	width 55col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Sketch-hole-setup"
+
+\end_inset
+
+Sketch of a plasma in a hole with the diameter 
+\begin_inset Formula $2r$
+\end_inset
+
+.
+ The borders of the sheath are so close together that electrons will be
+ reflected directly to the opposite sheath border and therefore remain a
+ long time in the hole resulting in a high ionization rate.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We can assume that if 
+\begin_inset Formula $r<s$
+\end_inset
+
+ no plasma will burn in the holes because then no sheath can be formed.
+ The factor
+\begin_inset space ~
+\end_inset
+
+2 in 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:r-sheath-hollow"
+
+\end_inset
+
+ is an empirical value.
+ If 
+\begin_inset Formula $r\gg s$
+\end_inset
+
+ the sheath borders are too far away to get the reflecting effect.
+ The electrons are then not directly reflected to the opposite sheath.
+ So the hollow cathode effect only exists for hole radiuses close above
+ the sheath thickness.
+\end_layout
+
+\begin_layout Subsection*
+Example
+\end_layout
+
+\begin_layout Standard
+A part should be coated at a constant pressure 
+\begin_inset Formula $p$
+\end_inset
+
+ at a fixed bias of 
+\begin_inset Formula $U_{\mathrm{bias,\thinspace1}}$
+\end_inset
+
+ and later with a lower bias 
+\begin_inset Formula $U_{\mathrm{bias,\thinspace2}}$
+\end_inset
+
+.
+ The values for 
+\begin_inset Formula $A_{e}$
+\end_inset
+
+ and 
+\begin_inset Formula $A_{w}$
+\end_inset
+
+ are known.
+ In a preliminary test one can measure the dissipated powers 
+\begin_inset Formula $P_{\mathrm{measured}}$
+\end_inset
+
+ at the given bias voltages.
+\end_layout
+
+\begin_layout Standard
+The sheath thickness 
+\begin_inset Formula $s$
+\end_inset
+
+ can be calculated using the approximation 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:s-approx"
+
+\end_inset
+
+.
+ Looking at 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:U-matrix-relation"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:U-sheath-approx"
+
+\end_inset
+
+ we see that
+\begin_inset Formula 
+\begin{equation}
+\bar{s}_{e\,\mathrm{matrix}}^{2}=\bar{s}_{\mathrm{matrix}}^{2}\,\left(\frac{A_{w}}{A_{e}}\right)^{2}
+\end{equation}
+
+\end_inset
+
+Using 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:s-approx"
+
+\end_inset
+
+ we can write
+\begin_inset Formula 
+\begin{equation}
+\bar{s}_{e\,\mathrm{matrix}}=\frac{I_{\mathrm{RF}}}{e\,n_{0}A_{w}\,\omega_{\mathrm{RF}}}\,\frac{A_{w}}{A_{e}}
+\end{equation}
+
+\end_inset
+
+putting this into 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:I_RF-approx"
+
+\end_inset
+
+ gives
+\begin_inset Formula 
+\begin{eqnarray}
+\bar{s}_{e\,\mathrm{matrix}} & = & \frac{1}{e\,n_{0}A_{w}\,\omega_{\mathrm{RF}}}\,\frac{A_{w}}{A_{e}}\,\left(A_{e}\,\omega_{\mathrm{RF}}\right)^{2/3}\,\left(\frac{2\epsilon_{0}en_{0}P_{\mathrm{measured}}}{1.146}\right)^{1/3}\nonumber \\
+ & = & \left(A_{e}\,\omega_{\mathrm{RF}}\right)^{-1/3}\,\left(en_{0}\right)^{-2/3}\,\left(\frac{2\epsilon_{0}P_{\mathrm{measured}}}{1.146}\right)^{1/3}
+\end{eqnarray}
+
+\end_inset
+
+putting now 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:n_0-approx"
+
+\end_inset
+
+ into this leads to
+\begin_inset Formula 
+\begin{eqnarray}
+\bar{s}_{e\,\mathrm{matrix}} & = & \left(A_{e}\,\omega_{\mathrm{RF}}\right)^{-1/3}\,\left(\frac{e}{2e\epsilon_{0}U_{\mathrm{bias}}^{3}}\,\left(\frac{P_{\mathrm{measured}}}{1.146\cdot A_{e}\,\omega_{\mathrm{RF}}}\right)^{2}\left(\frac{A_{w}}{A_{e}}\right)^{6}\right)^{-2/3}\,\left(\frac{2\epsilon_{0}P_{\mathrm{measured}}}{1.146}\right)^{1/3}\nonumber \\
+ & = & \frac{2.292\,\epsilon_{0}\,\omega_{\mathrm{RF}}\,A_{e}^{5}\,U_{\mathrm{bias}}^{2}}{P_{\mathrm{measured}}\,A_{w}^{4}}
+\end{eqnarray}
+
+\end_inset
+
+We see that due to the matrix model, the mean free path 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ of the used precursor(s) and thus the pressure does not have an influence
+ on the approximated sheath thickness.
+\end_layout
+
+\begin_layout Standard
+To calculate the minimal hole radius, we use the lower bias and get 
+\begin_inset Formula $\bar{s}_{e\,\mathrm{matrix\,min}}$
+\end_inset
+
+.
+ The maximal sheath thickness 
+\begin_inset Formula $\bar{s}_{e\,\mathrm{matrix\,max}}$
+\end_inset
+
+ is calculated using the larger bias.
+ According to 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:r-sheath-hollow"
+
+\end_inset
+
+ only in holes with a radius in the range of 
+\begin_inset Formula $2\bar{s}_{e\,\mathrm{matrix\,max}}>r>\bar{s}_{e\,\mathrm{matrix\,min}}$
+\end_inset
+
+ the hollow cathode effect will occur.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Greyedout
+status open
+
+\begin_layout Plain Layout
+Note that for conductive substrates the electrode area is the uncovered
+ surface area of the electrode plus the visible surface area of the substrate.
+ For non conductive substrates the electrode area is only the uncovered
+ surface area of the electrode.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In practice there are often have setups like the one that is schematically
+ shown in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Scheme-holder"
+
+\end_inset
+
+.
+ One uses then a substrate holder that reduces the gap to the substrates
+ so that no dense plasma will burn in.
+ With 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:s_precise"
+
+\end_inset
+
+ we are able to calculate the required gap.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename clipart/Substrate-holder-example.pdf
+	width 60col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Scheme-holder"
+
+\end_inset
+
+Scheme of a typical sample holder used to coat e.
+\begin_inset space \thinspace{}
+\end_inset
+
+g.
+ knife blades.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Conclusions
+\end_layout
+
+\begin_layout Standard
+We see that with the knowledge of the plasma input power 
+\begin_inset Formula $P_{\mathrm{measured}}$
+\end_inset
+
+, the bias voltage 
+\begin_inset Formula $U_{\mathrm{bias}}$
+\end_inset
+
+ and the electron temperature 
+\begin_inset Formula $T_{e}$
+\end_inset
+
+ we are able to explain what is happening in a CCP.
+ But as long as we do not measure 
+\begin_inset Formula $T_{e}$
+\end_inset
+
+ we cannot calculate exact values although this is often necessary, e.g.
+ to avoid the hollow cathode effect.
+ We need 
+\begin_inset Formula $T_{e}$
+\end_inset
+
+ to be able to calculate
+\end_layout
+
+\begin_layout Itemize
+the sheath thickness 
+\begin_inset Formula $s$
+\end_inset
+
+, see 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:s_e-mean"
+
+\end_inset
+
+ – necessary to calculate the diameter of holes in which the hollow cathode
+ effect will occur
+\end_layout
+
+\begin_layout Itemize
+the voltage across a sheath, see 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:U_w-precise"
+
+\end_inset
+
+ – necessary to calculate plasma density and thus the ionization ratio,
+ see 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:ionization-ratio"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+the floating potential 
+\begin_inset Formula $\Phi_{\mathrm{floating}}$
+\end_inset
+
+, see 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Phi_float"
+
+\end_inset
+
+ – necessary to calculate the energy of ions impinging substrates in the
+ plasma bulk
+\end_layout
+
+\begin_layout Section
+\start_of_appendix
+Mean Free Paths
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Mean-Free-Paths"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The mean free paths 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ given here were calculated using the ideal gas law and thus this formula:
+\begin_inset Formula 
+\begin{equation}
+\lambda=\frac{k_{\mathrm{B}}T}{\sqrt{2}\pi d^{2}p}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $k_{\mathrm{B}}=1.38\cdot10^{-23}$
+\end_inset
+
+
+\begin_inset space \thinspace{}
+\end_inset
+
+J/K is the 
+\noun on
+Boltzmann
+\noun default
+ constant, 
+\begin_inset Formula $T$
+\end_inset
+
+ the temperature in Kelvin, 
+\begin_inset Formula $p$
+\end_inset
+
+ the pressure in Pascal and 
+\begin_inset Formula $d$
+\end_inset
+
+ the largest diameter of the moelcule in meters.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Note:
+\series default
+ the 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ listed in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Mean-free-paths"
+
+\end_inset
+
+ are according to 
+\begin_inset Formula $T=298\,K$
+\end_inset
+
+ and 
+\begin_inset Formula $p=1$
+\end_inset
+
+
+\begin_inset space \thinspace{}
+\end_inset
+
+Pa.
+ For other pressures, the value can be divided by the actual pressure.
+\end_layout
+
+\begin_layout Standard
+The molecule diameter was determined using the program 
+\family sans
+
+\begin_inset CommandInset href
+LatexCommand href
+name "Avogadro"
+target "https://avogadro.cc/"
+literal "false"
+
+\end_inset
+
+
+\family default
+ by optimizing its geometry in 5000
+\begin_inset space ~
+\end_inset
+
+steps using the 
+\begin_inset CommandInset href
+LatexCommand href
+name "Merck molecular force field"
+target "https://en.wikipedia.org/wiki/Merck_molecular_force_field"
+literal "false"
+
+\end_inset
+
+ method 94 (MMFF94).
+ The largest molecule diameter was measured out using the calculated coordinates
+ of the hydrogen molecules the most far away from each other.
+ For hydrogen-free molecules, the atom ccordinates were used plus 2
+\begin_inset space \thinspace{}
+\end_inset
+
+times the 
+\begin_inset CommandInset href
+LatexCommand href
+name "atomic radius"
+target "http://en.wikipedia.org/wiki/Atomic_radius"
+literal "false"
+
+\end_inset
+
+ of the outermost atoms.
+ Despite that this method is not very precise, it delivers realistic 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ for practical use,
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Keep in mind
+\series default
+, that the 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ given in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Mean-free-paths"
+
+\end_inset
+
+ are only usable for complete molecules.
+ As soon as a molecule is cracked in the plasma or reacted, its geometry
+ has changed fundamentally and calculations using specific 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ are not sensible.
+\end_layout
+
+\begin_layout Standard
+\noindent
+\begin_inset Float table
+placement !h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Mean-free-paths"
+
+\end_inset
+
+Mean free paths 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ for some molecules, commonly used in PE-CVD processes; for 
+\begin_inset Formula $T=298\,K$
+\end_inset
+
+ and 
+\begin_inset Formula $p=1$
+\end_inset
+
+
+\begin_inset space \thinspace{}
+\end_inset
+
+Pa.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="25" columns="2">
+<features booktabs="true" tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0pt">
+<column alignment="center" valignment="top">
+<row endhead="true">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Molecule
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\lambda$
+\end_inset
+
+ in mm
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Gases
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset CommandInset href
+LatexCommand href
+name "Acetylene"
+target "https://en.wikipedia.org/wiki/Acetylene"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8.4
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset CommandInset href
+LatexCommand href
+name "Ammonia"
+target "https://en.wikipedia.org/wiki/Ammonia"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+35.3
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset CommandInset href
+LatexCommand href
+name "Argon"
+target "http://en.wikipedia.org/wiki/Argon"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+17.9
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset CommandInset href
+LatexCommand href
+name "Carbon tetrafluoride"
+target "https://en.wikipedia.org/wiki/Carbon_tetrafluoride"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8.9
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset CommandInset href
+LatexCommand href
+name "Hydrogen"
+target "https://en.wikipedia.org/wiki/Hydrogen"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+92.6
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset CommandInset href
+LatexCommand href
+name "Methane"
+target "http://en.wikipedia.org/wiki/Methane"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+29.2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset CommandInset href
+LatexCommand href
+name "Nitrogen"
+target "https://en.wikipedia.org/wiki/Nitrogen"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+13.7
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset CommandInset href
+LatexCommand href
+name "Nitrous oxide"
+target "https://en.wikipedia.org/wiki/Nitrous_oxide"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Constitution 
+\begin_inset Formula $\ce{N\tbond N-O}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+6.2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Constitution 
+\begin_inset Formula $\ce{N\dbond N\dbond O}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+6.6
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset CommandInset href
+LatexCommand href
+name "Oxygen"
+target "https://en.wikipedia.org/wiki/Oxygen"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+16.1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Precursors
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset CommandInset href
+LatexCommand href
+name "Dimethyldiethoxysilane"
+target "http://www.chemspider.com/Chemical-Structure.56117.html"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2.1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset CommandInset href
+LatexCommand href
+name "Dimethyldimethoxysilane"
+target "http://www.chemspider.com/Chemical-Structure.59573.html"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset CommandInset href
+LatexCommand href
+name "Hexamethyldisilazan"
+target "http://de.wikipedia.org/wiki/Hexamethyldisilazan"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.6
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset CommandInset href
+LatexCommand href
+name "Hexamethyldisiloxane"
+target "https://en.wikipedia.org/wiki/Hexamethyldisiloxane"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.6
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset CommandInset href
+LatexCommand href
+name "Hexane"
+target "https://en.wikipedia.org/wiki/Hexane"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.4
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset CommandInset href
+LatexCommand href
+name "Methyltrimethoxysilane"
+target "http://www.chemspider.com/Chemical-Structure.13803.html"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2.0
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset CommandInset href
+LatexCommand href
+name "Tetraethylorthosilikate"
+target "https://en.wikipedia.org/wiki/Tetraethyl_orthosilicate"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset CommandInset href
+LatexCommand href
+name "Tetramethyldisilazane"
+target "http://www.chemspider.com/Chemical-Structure.10654696.html"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.7
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset CommandInset href
+LatexCommand href
+name "Tetramethyldisiloxane"
+target "http://www.chemspider.com/Chemical-Structure.17619.html"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.7
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset CommandInset href
+LatexCommand href
+name "Tetramethylsilane"
+target "https://en.wikipedia.org/wiki/Tetramethylsilane"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3.9
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset CommandInset href
+LatexCommand href
+name "Vinyltrimethoxysilane"
+target "http://www.chemspider.com/Chemical-Structure.68503.html"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2.3
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+btprint "btPrintCited"
+bibfiles "biblio/Plasma"
+options "IEEEtran"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
